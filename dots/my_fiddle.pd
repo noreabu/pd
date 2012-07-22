@@ -1,0 +1,219 @@
+#N canvas 850 417 1013 673 10;
+#X obj 541 626 unpack;
+#X floatatom 541 676 0 0 0 0 - - -;
+#X msg 447 459 print;
+#X floatatom 555 653 0 0 0 0 - - -;
+#X obj 541 586 route 1 2 3 4;
+#X obj 624 626 unpack;
+#X floatatom 624 676 0 0 0 0 - - -;
+#X floatatom 638 653 0 0 0 0 - - -;
+#X obj 708 626 unpack;
+#X floatatom 708 676 0 0 0 0 - - -;
+#X floatatom 722 653 0 0 0 0 - - -;
+#X obj 399 588 unpack;
+#X floatatom 399 676 0 0 0 0 - - -;
+#X floatatom 432 642 0 0 0 0 - - -;
+#X floatatom 476 676 0 0 0 0 - - -;
+#X obj 281 736 print attack;
+#X obj 190 736 print pitch;
+#X msg 565 55 \; pd dsp 1;
+#X text 470 49 click here;
+#X text 470 71 to start DSP;
+#X text 236 14 FIDDLE - pitch estimator and sinusoidal peak finder
+;
+#X text 18 80 The Fiddle object estimates the pitch and amplitude of
+an incoming sound \, both continuously and as a stream of discrete
+"note" events. Fiddle optionally outputs a list of detected sinusoidal
+peaks used to make the pitch determination. Fiddle is described theoretically
+in the 1998 ICMC proceedings \, reprinted on http://man104nfs.ucsd.edu/~mpuckett.
+;
+#X text 18 180 Fiddle's creation arguments specify an analysis window
+size \, the maximum polyphony (i.e. \, the number of simultaneous "pitches"
+to try to find) \, the number of peaks in the spectrum to consider
+\, and the number of peaks \, if any \, to output "raw." The outlets
+give discrete pitch (a number) \, detected attacks in the amplitude
+envelope (a bang) \, one or more voices of continuous pitch and amplitude
+\, overall amplitude \, and optionally a sequence of messages with
+the peaks.;
+#X text 18 306 The analysis hop size is half the window size so in
+the example shown here \, one analysis is done every 512 samples (11.6
+msec at 44K1) \, and the analysis uses the most recent 1024 samples
+(23.2 msec at 44K1). The minimum frequency that Fiddle will report
+is 2-1/2 cycles per analysis windows \, or about 108 Hz. (just below
+MIDI 45.);
+#X text 679 545 number of pitch outlets (1-3 \, default 1);
+#X text 679 567 number of peaks to find (1-100 \, default 20);
+#X text 679 589 number of peaks to output (default 0.);
+#X msg 449 237 reattack 100 10;
+#X msg 448 292 npartial 7;
+#X msg 448 180 vibrato 50 0.5;
+#X text 570 101 a low and high amplitude threshold: if signal amplitude
+is below the low threshold \, no pitches or peaks are output. The high
+threshold is a minimum at which "cooked" outputs may appear.;
+#X text 570 162 A period in milliseconds (50) over which the raw pitch
+may not deviate more than an interval in half-tones (0.5) from the
+average pitch to report it as a note to the "cooked" pitch outlet.
+;
+#X text 570 223 A period in milliseconds (100) over which a re-attack
+is reported if the amplitude rises more than (1) dB. The re-attack
+will result in a "bang" in the attack outlet and may give rise to repeated
+notes in the cooked pitch output.;
+#X text 548 700 individual sinusoidal components;
+#X text 476 698 amplitude;
+#X text 486 713 (dB);
+#X text 399 698 raw pitch;
+#X text 386 722 and amplitude;
+#X text 374 739 (up to 3 outputs);
+#X text 287 756 bang on;
+#X text 287 778 attack;
+#X text 185 756 cooked pitch;
+#X text 202 773 output;
+#X text 555 555 ------ arguments:;
+#X msg 450 341 auto 1;
+#X msg 450 363 auto 0;
+#X msg 449 428 bang;
+#X text 571 426 poll current values --- useful if not in auto mode
+\,;
+#X text 570 284 Higher partials are weighed less strongly than lower
+ones in determining the pitch. This specifies the number of the partial
+(7) which will be weighted half as strongly as the fundamental.;
+#X text 570 345 start and stop "auto" mode (on by default.) If off
+\, output only appears on "bang" (poll mode).;
+#X text 571 458 print out all settings;
+#X text 679 523 window size (128-2048 \, default 1024);
+#X msg 450 385 npoints 2048;
+#X text 572 394 number of points in analysis window (power of 2 \,
+128-2048);
+#X obj 303 465 adc~;
+#X obj 304 498 *~ 0.5;
+#X obj 356 498 *~ 0.5;
+#X obj 305 524 +~;
+#X obj 336 610 + 0.4999;
+#X obj 338 633 int;
+#X floatatom 103 639 5 0 0 1 note - -;
+#X msg 449 406 npoints 128;
+#X msg 451 117 amp-range 70 90;
+#X msg 29 701 amp-range \$1 \$2;
+#X obj 25 666 pack 70 90;
+#X floatatom 104 619 5 0 0 0 - - -;
+#X floatatom 174 619 5 0 0 0 - - -;
+#X obj 68 731 pack 0 0;
+#X obj 195 689 spigot;
+#X obj 283 697 spigot;
+#X obj 269 616 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 420 555 fiddle~ 1024 1 20 3;
+#X obj 35 808 delay 10;
+#X msg 35 1001 0;
+#X obj 55 828 delay 10;
+#X msg 55 1001 0;
+#X obj 75 848 delay 10;
+#X msg 75 1001 0;
+#X obj 95 868 delay 10;
+#X msg 95 1001 0;
+#X obj 115 888 delay 10;
+#X msg 115 1001 0;
+#X obj 135 908 delay 10;
+#X msg 135 1001 0;
+#X obj 155 928 delay 10;
+#X msg 155 1001 0;
+#X obj 175 948 delay 10;
+#X msg 175 1001 0;
+#X floatatom 175 642 5 0 0 1 reset_after_ms - -;
+#X obj 14 1027 outlet;
+#X obj 64 1027 outlet;
+#X obj 114 1027 outlet;
+#X obj 164 1027 outlet;
+#X obj 214 1027 outlet;
+#X obj 264 1027 outlet;
+#X obj 314 1027 outlet;
+#X obj 364 1027 outlet;
+#X obj 27 788 route 64 65 81 69 45 46 47 48;
+#X obj 499 759 s amp;
+#X connect 0 0 1 0;
+#X connect 0 1 3 0;
+#X connect 2 0 71 0;
+#X connect 4 0 0 0;
+#X connect 4 1 5 0;
+#X connect 4 2 8 0;
+#X connect 5 0 6 0;
+#X connect 5 1 7 0;
+#X connect 8 0 9 0;
+#X connect 8 1 10 0;
+#X connect 11 0 12 0;
+#X connect 11 0 58 0;
+#X connect 11 1 13 0;
+#X connect 13 0 67 1;
+#X connect 14 0 98 0;
+#X connect 27 0 71 0;
+#X connect 28 0 71 0;
+#X connect 29 0 71 0;
+#X connect 44 0 71 0;
+#X connect 45 0 71 0;
+#X connect 46 0 71 0;
+#X connect 52 0 71 0;
+#X connect 54 0 55 0;
+#X connect 54 1 56 0;
+#X connect 55 0 57 0;
+#X connect 56 0 57 1;
+#X connect 57 0 71 0;
+#X connect 58 0 59 0;
+#X connect 59 0 60 0;
+#X connect 60 0 67 0;
+#X connect 61 0 71 0;
+#X connect 62 0 71 0;
+#X connect 63 0 71 0;
+#X connect 64 0 63 0;
+#X connect 65 0 64 0;
+#X connect 66 0 64 1;
+#X connect 67 0 97 0;
+#X connect 68 0 16 0;
+#X connect 69 0 15 0;
+#X connect 70 0 69 1;
+#X connect 70 0 68 1;
+#X connect 71 0 68 0;
+#X connect 71 1 69 0;
+#X connect 71 2 11 0;
+#X connect 71 3 14 0;
+#X connect 71 4 4 0;
+#X connect 72 0 73 0;
+#X connect 73 0 89 0;
+#X connect 74 0 75 0;
+#X connect 75 0 90 0;
+#X connect 76 0 77 0;
+#X connect 77 0 91 0;
+#X connect 78 0 79 0;
+#X connect 79 0 92 0;
+#X connect 80 0 81 0;
+#X connect 81 0 93 0;
+#X connect 82 0 83 0;
+#X connect 83 0 94 0;
+#X connect 84 0 85 0;
+#X connect 85 0 95 0;
+#X connect 86 0 87 0;
+#X connect 87 0 96 0;
+#X connect 88 0 86 1;
+#X connect 88 0 72 1;
+#X connect 88 0 74 1;
+#X connect 88 0 76 1;
+#X connect 88 0 78 1;
+#X connect 88 0 80 1;
+#X connect 88 0 82 1;
+#X connect 88 0 84 1;
+#X connect 97 0 72 0;
+#X connect 97 0 89 0;
+#X connect 97 1 74 0;
+#X connect 97 1 90 0;
+#X connect 97 2 76 0;
+#X connect 97 2 91 0;
+#X connect 97 3 78 0;
+#X connect 97 3 92 0;
+#X connect 97 4 80 0;
+#X connect 97 4 93 0;
+#X connect 97 5 82 0;
+#X connect 97 5 94 0;
+#X connect 97 6 84 0;
+#X connect 97 6 95 0;
+#X connect 97 7 86 0;
+#X connect 97 7 96 0;
+#X coords 0 -1 1 1 200 60 1 100 600;
