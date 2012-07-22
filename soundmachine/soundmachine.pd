@@ -1,0 +1,450 @@
+#N canvas 28 468 848 525 10;
+#X obj 19 -101 adc~;
+#N canvas 369 131 712 393 reverb 0;
+#X msg 12 139 roomsize \$1;
+#X msg 89 139 damping \$1;
+#X msg 164 119 width \$1;
+#X msg 162 139 wet \$1;
+#X msg 209 138 dry \$1;
+#X msg 223 75 print;
+#X msg 97 119 freeze \$1;
+#X msg 24 119 bypass \$1;
+#X text 375 249 - print the current values of the above parameters
+;
+#X text 346 280 - start/stop freeze of reverb tail \, using 1 or 0
+;
+#X text 310 304 - bypass the reverb processing \, using a 1 or 0;
+#X text 266 211 - level of unprocessed signal \, between 0 and 1 (default:
+0);
+#X text 269 153 - level of reverbed signal \, between 0 and 1 (default:
+0.3);
+#X text 257 86 - amount of damping of room's surfaces (default: 0.5)
+;
+#X text 345 125 - stereo width of reverb (default: 1);
+#X text 254 39 - size of the room to be simulated (default=0.85);
+#X floatatom 12 96 5 0 0 1 roomsize - -;
+#X floatatom 99 96 5 0 0 1 damping - -;
+#X obj 57 235 inlet~;
+#X obj 10 235 inlet~;
+#X obj 29 316 outlet~;
+#X obj 87 316 outlet~;
+#X floatatom 196 76 5 0 0 1 wet - -;
+#X floatatom 197 96 5 0 0 1 dry - -;
+#X obj 12 77 tgl 15 0 empty empty bypass 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 69 77 tgl 15 0 empty empty freeze 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 126 76 5 0 0 1 width - -;
+#X obj 29 274 freeverb~;
+#X connect 0 0 27 0;
+#X connect 1 0 27 0;
+#X connect 2 0 27 0;
+#X connect 3 0 27 0;
+#X connect 4 0 27 0;
+#X connect 5 0 27 0;
+#X connect 6 0 27 0;
+#X connect 7 0 27 0;
+#X connect 16 0 0 0;
+#X connect 17 0 1 0;
+#X connect 18 0 27 1;
+#X connect 19 0 27 0;
+#X connect 22 0 3 0;
+#X connect 23 0 4 0;
+#X connect 24 0 7 0;
+#X connect 25 0 6 0;
+#X connect 26 0 2 0;
+#X connect 27 0 20 0;
+#X connect 27 1 21 0;
+#X coords 0 -1 1 1 252 56 1 10 58;
+#X restore 32 45 pd reverb;
+#N canvas 471 637 432 332 my_delay2 0;
+#X obj 165 181 sig~;
+#X floatatom 158 120 5 0 0 1 ms - -;
+#X obj 22 101 inlet~;
+#X obj 87 224 outlet~;
+#X obj 138 71 inlet;
+#X obj 248 53 inlet;
+#X obj 209 227 *~;
+#X obj 166 200 vd~ dl2;
+#X obj 22 283 delwrite~ dl2 10000;
+#X floatatom 238 193 5 0 0 0 - - -;
+#X obj 106 141 hsl 128 15 0 1 0 0 empty empty wet -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 233 103 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 23 170 spigot~;
+#X connect 0 0 7 0;
+#X connect 1 0 0 0;
+#X connect 2 0 12 0;
+#X connect 4 0 1 0;
+#X connect 5 0 10 0;
+#X connect 6 0 8 0;
+#X connect 7 0 3 0;
+#X connect 7 0 6 0;
+#X connect 9 0 6 1;
+#X connect 10 0 9 0;
+#X connect 11 0 12 1;
+#X connect 12 0 8 0;
+#X connect 12 1 3 0;
+#X coords 0 -1 1 1 150 60 1 100 100;
+#X restore 87 -44 pd my_delay2;
+#X obj 90 18 throw~ ch2;
+#N canvas 18 306 1054 790 fiddle 0;
+#X obj 541 626 unpack;
+#X floatatom 541 676 0 0 0 0 - - -;
+#X msg 447 459 print;
+#X floatatom 555 653 0 0 0 0 - - -;
+#X obj 541 586 route 1 2 3 4;
+#X obj 624 626 unpack;
+#X floatatom 624 676 0 0 0 0 - - -;
+#X floatatom 638 653 0 0 0 0 - - -;
+#X obj 708 626 unpack;
+#X floatatom 708 676 0 0 0 0 - - -;
+#X floatatom 722 653 0 0 0 0 - - -;
+#X obj 399 626 unpack;
+#X floatatom 399 676 0 0 0 0 - - -;
+#X floatatom 413 653 0 0 0 0 - - -;
+#X floatatom 476 676 0 0 0 0 - - -;
+#X obj 291 676 print attack;
+#X obj 200 676 print pitch;
+#X msg 565 55 \; pd dsp 1;
+#X text 470 49 click here;
+#X text 470 71 to start DSP;
+#X text 236 14 FIDDLE - pitch estimator and sinusoidal peak finder
+;
+#X text 18 80 The Fiddle object estimates the pitch and amplitude of
+an incoming sound \, both continuously and as a stream of discrete
+"note" events. Fiddle optionally outputs a list of detected sinusoidal
+peaks used to make the pitch determination. Fiddle is described theoretically
+in the 1998 ICMC proceedings \, reprinted on http://man104nfs.ucsd.edu/~mpuckett.
+;
+#X text 18 180 Fiddle's creation arguments specify an analysis window
+size \, the maximum polyphony (i.e. \, the number of simultaneous "pitches"
+to try to find) \, the number of peaks in the spectrum to consider
+\, and the number of peaks \, if any \, to output "raw." The outlets
+give discrete pitch (a number) \, detected attacks in the amplitude
+envelope (a bang) \, one or more voices of continuous pitch and amplitude
+\, overall amplitude \, and optionally a sequence of messages with
+the peaks.;
+#X text 18 306 The analysis hop size is half the window size so in
+the example shown here \, one analysis is done every 512 samples (11.6
+msec at 44K1) \, and the analysis uses the most recent 1024 samples
+(23.2 msec at 44K1). The minimum frequency that Fiddle will report
+is 2-1/2 cycles per analysis windows \, or about 108 Hz. (just below
+MIDI 45.);
+#X text 679 545 number of pitch outlets (1-3 \, default 1);
+#X text 679 567 number of peaks to find (1-100 \, default 20);
+#X text 679 589 number of peaks to output (default 0.);
+#X msg 451 117 amp-range 40 50;
+#X msg 449 237 reattack 100 10;
+#X msg 448 292 npartial 7;
+#X msg 448 180 vibrato 50 0.5;
+#X text 570 101 a low and high amplitude threshold: if signal amplitude
+is below the low threshold \, no pitches or peaks are output. The high
+threshold is a minimum at which "cooked" outputs may appear.;
+#X text 570 162 A period in milliseconds (50) over which the raw pitch
+may not deviate more than an interval in half-tones (0.5) from the
+average pitch to report it as a note to the "cooked" pitch outlet.
+;
+#X text 570 223 A period in milliseconds (100) over which a re-attack
+is reported if the amplitude rises more than (1) dB. The re-attack
+will result in a "bang" in the attack outlet and may give rise to repeated
+notes in the cooked pitch output.;
+#X text 548 700 individual sinusoidal components;
+#X text 476 698 amplitude;
+#X text 486 713 (dB);
+#X text 399 698 raw pitch;
+#X text 386 722 and amplitude;
+#X text 374 739 (up to 3 outputs);
+#X text 297 696 bang on;
+#X text 297 718 attack;
+#X text 195 696 cooked pitch;
+#X text 212 713 output;
+#X text 555 555 ------ arguments:;
+#X msg 450 341 auto 1;
+#X msg 450 363 auto 0;
+#X msg 449 428 bang;
+#X text 571 426 poll current values --- useful if not in auto mode
+\,;
+#X text 570 284 Higher partials are weighed less strongly than lower
+ones in determining the pitch. This specifies the number of the partial
+(7) which will be weighted half as strongly as the fundamental.;
+#X text 570 345 start and stop "auto" mode (on by default.) If off
+\, output only appears on "bang" (poll mode).;
+#X text 571 458 print out all settings;
+#X text 679 523 window size (128-2048 \, default 1024);
+#X msg 450 385 npoints 2048;
+#X text 572 394 number of points in analysis window (power of 2 \,
+128-2048);
+#X msg 449 406 npoints 1024;
+#X obj 306 479 inlet~;
+#X obj 301 759 outlet;
+#X msg 109 501 amp-range \$1 \$2;
+#X floatatom 104 411 5 0 0 1 min_dB - -;
+#X floatatom 104 433 5 0 0 1 max_dB - -;
+#X obj 99 469 pack 0 0;
+#X obj 688 752 outlet;
+#X obj 748 752 outlet;
+#X obj 817 747 outlet;
+#X obj 420 555 fiddle~ 2048 1 20 3;
+#X obj 213 646 spigot;
+#X obj 240 614 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 304 647 spigot;
+#X obj 331 615 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X connect 0 0 1 0;
+#X connect 0 1 3 0;
+#X connect 1 0 62 0;
+#X connect 2 0 65 0;
+#X connect 4 0 0 0;
+#X connect 4 1 5 0;
+#X connect 4 2 8 0;
+#X connect 5 0 6 0;
+#X connect 5 1 7 0;
+#X connect 6 0 63 0;
+#X connect 8 0 9 0;
+#X connect 8 1 10 0;
+#X connect 9 0 64 0;
+#X connect 11 0 12 0;
+#X connect 11 1 13 0;
+#X connect 27 0 65 0;
+#X connect 28 0 65 0;
+#X connect 29 0 65 0;
+#X connect 30 0 65 0;
+#X connect 45 0 65 0;
+#X connect 46 0 65 0;
+#X connect 47 0 65 0;
+#X connect 53 0 65 0;
+#X connect 55 0 65 0;
+#X connect 56 0 65 0;
+#X connect 58 0 65 0;
+#X connect 59 0 61 0;
+#X connect 60 0 61 1;
+#X connect 61 0 58 0;
+#X connect 65 0 66 0;
+#X connect 65 1 57 0;
+#X connect 65 1 68 0;
+#X connect 65 2 11 0;
+#X connect 65 3 14 0;
+#X connect 65 4 4 0;
+#X connect 66 0 16 0;
+#X connect 67 0 66 1;
+#X connect 68 0 15 0;
+#X connect 69 0 68 1;
+#X coords 0 -1 1 1 85 60 2 100 400;
+#X restore 523 92 pd fiddle;
+#N canvas 1173 669 396 421 lead 0;
+#X obj 13 80 vsl 15 128 40 1000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1045 1;
+#X floatatom 13 216 5 0 0 0 - - -;
+#X obj 13 235 osc~ 440;
+#X floatatom 143 124 5 0 0 1 attack - -;
+#X obj 113 217 f;
+#X obj 78 132 t b b b;
+#X msg 65 191 0.25;
+#X obj 187 304 line;
+#X obj 146 182 hsl 128 15 0 1 0 0 empty empty env -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 86 297 line~;
+#X obj 14 344 *~;
+#X obj 13 296 clip~ -1 1;
+#X obj 12 265 *~ 1;
+#X floatatom 214 104 5 0 0 0 - - -;
+#X obj 14 366 outlet~;
+#X obj 13 21 inlet;
+#X obj 13 48 t f b;
+#X obj 80 47 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 79 16 inlet;
+#X floatatom 143 103 5 0 0 1 delay - -;
+#X obj 78 102 pipe 100;
+#X floatatom 143 145 5 0 0 1 decay - -;
+#X obj 167 216 f;
+#X obj 47 105 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 122 249 0.8 \$1;
+#X msg 185 253 0 \$1;
+#X obj 202 214 pipe;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 12 0;
+#X connect 3 0 4 1;
+#X connect 4 0 24 0;
+#X connect 4 0 26 1;
+#X connect 5 0 22 0;
+#X connect 5 1 4 0;
+#X connect 5 2 6 0;
+#X connect 6 0 2 1;
+#X connect 7 0 8 0;
+#X connect 9 0 10 1;
+#X connect 10 0 14 0;
+#X connect 11 0 10 0;
+#X connect 12 0 11 0;
+#X connect 13 0 12 1;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
+#X connect 17 0 20 0;
+#X connect 18 0 17 0;
+#X connect 19 0 20 1;
+#X connect 20 0 5 0;
+#X connect 21 0 22 1;
+#X connect 22 0 26 0;
+#X connect 23 0 5 0;
+#X connect 24 0 7 0;
+#X connect 24 0 9 0;
+#X connect 25 0 7 0;
+#X connect 25 0 9 0;
+#X connect 26 0 25 0;
+#X coords 0 -1 1 1 140 100 2 140 100;
+#X restore 550 245 pd lead;
+#N canvas 1173 669 396 421 lead 0;
+#X obj 13 80 vsl 15 128 40 1000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2060 1;
+#X floatatom 13 216 5 0 0 0 - - -;
+#X obj 13 235 osc~ 440;
+#X floatatom 143 124 5 0 0 1 attack - -;
+#X obj 113 217 f;
+#X obj 78 132 t b b b;
+#X msg 65 191 0.25;
+#X obj 187 304 line;
+#X obj 146 182 hsl 128 15 0 1 0 0 empty empty env -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 86 297 line~;
+#X obj 14 344 *~;
+#X obj 13 296 clip~ -1 1;
+#X obj 12 265 *~ 1;
+#X floatatom 221 104 5 0 0 0 - - -;
+#X obj 14 366 outlet~;
+#X obj 13 21 inlet;
+#X obj 13 48 t f b;
+#X obj 80 47 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 79 16 inlet;
+#X floatatom 143 103 5 0 0 1 delay - -;
+#X obj 78 102 pipe 100;
+#X floatatom 143 145 5 0 0 1 decay - -;
+#X obj 167 216 f;
+#X obj 47 105 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 122 249 0.8 \$1;
+#X msg 185 253 0 \$1;
+#X obj 202 214 pipe;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 12 0;
+#X connect 3 0 4 1;
+#X connect 4 0 24 0;
+#X connect 4 0 26 1;
+#X connect 5 0 22 0;
+#X connect 5 1 4 0;
+#X connect 5 2 6 0;
+#X connect 6 0 2 1;
+#X connect 7 0 8 0;
+#X connect 9 0 10 1;
+#X connect 10 0 14 0;
+#X connect 11 0 10 0;
+#X connect 12 0 11 0;
+#X connect 13 0 12 1;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
+#X connect 17 0 20 0;
+#X connect 18 0 17 0;
+#X connect 19 0 20 1;
+#X connect 20 0 5 0;
+#X connect 21 0 22 1;
+#X connect 22 0 26 0;
+#X connect 23 0 5 0;
+#X connect 24 0 7 0;
+#X connect 24 0 9 0;
+#X connect 25 0 7 0;
+#X connect 25 0 9 0;
+#X connect 26 0 25 0;
+#X coords 0 -1 1 1 140 100 2 140 100;
+#X restore 699 245 pd lead;
+#X obj 551 357 throw~ ch5;
+#X obj 701 357 throw~ ch6;
+#X obj 99 -81 throw~ ch1;
+#N canvas 1173 669 396 421 lead 0;
+#X obj 13 80 vsl 15 128 40 1000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 336 1;
+#X floatatom 13 216 5 0 0 0 - - -;
+#X obj 13 235 osc~ 440;
+#X floatatom 143 124 5 0 0 1 attack - -;
+#X obj 113 217 f;
+#X obj 78 132 t b b b;
+#X msg 65 191 0.25;
+#X obj 187 304 line;
+#X obj 146 182 hsl 128 15 0 1 0 0 empty empty env -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 86 297 line~;
+#X obj 14 344 *~;
+#X obj 13 296 clip~ -1 1;
+#X obj 12 265 *~ 1;
+#X floatatom 222 105 5 0 0 0 - - -;
+#X obj 14 366 outlet~;
+#X obj 13 21 inlet;
+#X obj 13 48 t f b;
+#X obj 80 47 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 79 16 inlet;
+#X floatatom 143 103 5 0 0 1 delay - -;
+#X obj 78 102 pipe 100;
+#X floatatom 143 145 5 0 0 1 decay - -;
+#X obj 167 216 f;
+#X obj 47 105 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 122 249 0.8 \$1;
+#X msg 185 253 0 \$1;
+#X obj 202 214 pipe;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 12 0;
+#X connect 3 0 4 1;
+#X connect 4 0 24 0;
+#X connect 4 0 26 1;
+#X connect 5 0 22 0;
+#X connect 5 1 4 0;
+#X connect 5 2 6 0;
+#X connect 6 0 2 1;
+#X connect 7 0 8 0;
+#X connect 9 0 10 1;
+#X connect 10 0 14 0;
+#X connect 11 0 10 0;
+#X connect 12 0 11 0;
+#X connect 13 0 12 1;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
+#X connect 17 0 20 0;
+#X connect 18 0 17 0;
+#X connect 19 0 20 1;
+#X connect 20 0 5 0;
+#X connect 21 0 22 1;
+#X connect 22 0 26 0;
+#X connect 23 0 5 0;
+#X connect 24 0 7 0;
+#X connect 24 0 9 0;
+#X connect 25 0 7 0;
+#X connect 25 0 9 0;
+#X connect 26 0 25 0;
+#X coords 0 -1 1 1 140 100 2 140 100;
+#X restore 407 245 pd lead;
+#X obj 408 357 throw~ ch4;
+#X obj 33 109 throw~ ch3;
+#X obj 397 -105 audiomixer;
+#X obj 4 132 slmkii;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X connect 0 0 4 0;
+#X connect 0 0 9 0;
+#X connect 1 0 12 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 1;
+#X connect 4 0 10 1;
+#X connect 4 0 6 1;
+#X connect 4 1 10 0;
+#X connect 4 2 5 0;
+#X connect 4 3 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 8 0;
+#X connect 10 0 11 0;

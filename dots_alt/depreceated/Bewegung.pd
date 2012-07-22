@@ -1,0 +1,23 @@
+#N canvas 1287 286 261 305 10;
+#X floatatom 17 39 3 0 100 1 threshold - -;
+#X obj 136 101 / 100;
+#X obj 70 178 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 15 154 pix_movement;
+#X obj 15 193 alpha;
+#X obj 15 225 outlet;
+#X obj 15 70 inlet;
+#X obj 158 12 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 15 97 spigot;
+#X obj 15 127 pix_separator;
+#X connect 0 0 1 0;
+#X connect 1 0 3 1;
+#X connect 2 0 4 1;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 6 0 8 0;
+#X connect 7 0 8 1;
+#X connect 8 0 9 0;
+#X connect 9 0 3 0;
+#X coords 0 -1 1 1 165 50 1 10 10;
