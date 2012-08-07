@@ -1,4 +1,4 @@
-#N canvas 343 68 636 687 10;
+#N canvas 447 156 636 843 10;
 #X obj 49 529 pix_snap2tex;
 #X msg 89 502 0 0;
 #X obj 89 479 t b b;
@@ -25,39 +25,40 @@
 #X obj 71 85 loadbang;
 #X obj 49 56 spigot;
 #X obj 49 554 alpha 1;
-#X obj 463 22 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
-#X obj 402 22 bng 15 250 50 0 empty empty reload 17 7 0 10 -262144
--1 -1;
+#X obj 420 38 tgl 15 0 empty empty empty 17 7 0 10 -1 -4034 -1 0 1
+;
+#X obj 402 38 bng 15 250 50 0 empty empty RELOAD -27 7 0 5 -1 -4034
+-191407;
 #X obj 34 20 inlet;
 #X msg 234 386 thresh \$1;
 #X msg 313 385 range \$1;
 #X obj 215 -82 inlet;
-#X obj 305 44 hsl 128 25 0 1 0 0 empty empty value 132 7 0 10 -262144
--1 -1 1100 1;
-#X obj 305 82 hsl 128 25 0.01 0.5 0 0 empty empty range 132 7 0 10
--262144 -1 -1 3100 1;
+#X obj 305 55 hsl 128 25 0 1 0 0 empty empty value 42 12 0 10 -262144
+-1 -1 0 1;
+#X obj 305 82 hsl 128 25 0.01 0.5 0 0 empty empty range 42 12 0 10
+-262144 -1 -1 0 1;
 #X msg 432 331 full_color \$1;
-#X obj 401 109 tgl 15 0 empty empty full_color 17 7 0 10 -262144 -1
--1 0 1;
-#X obj 302 112 bng 25 250 50 0 empty empty pick_color 27 12 0 10 -262144
--1 -1;
+#X obj 419 109 tgl 15 0 empty empty full_color -40 7 0 5 -1 -4034 -191407
+0 1;
+#X obj 302 109 bng 15 250 50 0 empty empty pick_color 17 7 0 5 -1 -4034
+-191407;
 #X obj 222 85 colorpanel;
 #X obj 222 114 unpack f f f;
 #X msg 352 279 green \$1;
 #X msg 302 280 red \$1;
 #X msg 418 281 blue \$1;
-#X obj 302 143 vsl 30 128 0 1 0 0 empty empty empty 0 -9 0 10 -261234
+#X obj 302 128 vsl 42 128 0 1 0 0 empty empty r 11 64 0 10 -261234
+-1 -1 0 0;
+#X obj 347 128 vsl 42 128 0 1 0 0 empty empty g 12 63 0 10 -204786
 -1 -1 0 1;
-#X obj 352 143 vsl 30 128 0 1 0 0 empty empty empty 0 -9 0 10 -204786
+#X obj 392 128 vsl 42 128 0 1 0 0 empty empty b 12 63 0 10 -203904
 -1 -1 0 1;
-#X obj 402 143 vsl 30 128 0 1 0 0 empty empty empty 0 -9 0 10 -203904
--1 -1 12700 1;
 #X msg 135 501 1024 768;
 #X msg 63 137 open shader/bunt.vert;
 #X msg 62 221 open shader/bunt.frag;
 #X obj 215 -55 route value range red green blue;
 #X obj 420 -26 print;
+#X obj 12 599 Textur;
 #X connect 0 0 24 0;
 #X connect 1 0 0 1;
 #X connect 2 0 1 0;
@@ -87,6 +88,7 @@
 #X connect 22 0 18 0;
 #X connect 23 0 17 0;
 #X connect 24 0 21 0;
+#X connect 24 0 49 0;
 #X connect 25 0 23 1;
 #X connect 26 0 18 0;
 #X connect 27 0 23 0;
@@ -117,4 +119,4 @@
 #X connect 47 3 42 0;
 #X connect 47 4 43 0;
 #X connect 47 5 48 0;
-#X coords 0 -1 1 1 180 260 1 300 20;
+#X coords 0 -1 1 1 137 226 1 300 35;

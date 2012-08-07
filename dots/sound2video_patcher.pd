@@ -1,4 +1,4 @@
-#N canvas 701 81 428 673 10;
+#N canvas 1201 254 428 673 10;
 #X obj 22 -197 my_fiddle;
 #X obj 22 154 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
@@ -88,6 +88,39 @@
 #X obj 283 28 * 0.1;
 #X floatatom 349 -113 5 0 0 0 - - -;
 #X text 226 -187 TODO: catch music automagically;
+#X obj 18 133 bng 15 250 50 0 empty empty START 17 7 0 5 -1 -4034 -128992
+;
+#X obj 198 154 s startaudio;
+#N canvas 0 0 499 336 lop 0;
+#X obj 97 5 adc~;
+#X floatatom 176 153 5 0 0 0 - - -;
+#X obj 207 47 mtof;
+#X floatatom 207 24 5 0 0 0 - #0-pit -;
+#X obj 176 93 lop~;
+#X text 259 23 <-- cutoff (pitch units);
+#X text 270 70 <-- cutoff (Hertz);
+#X floatatom 207 72 5 0 0 0 - - -;
+#X text 223 95 low-pass filter;
+#X obj 174 130 snapshot~;
+#X obj 67 42 *~ 0.5;
+#X obj 119 46 *~ 0.5;
+#X obj 83 74 +~;
+#X obj 3 100 metro 40;
+#X obj 2 74 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X connect 0 0 10 0;
+#X connect 0 1 11 0;
+#X connect 2 0 7 0;
+#X connect 3 0 2 0;
+#X connect 4 0 9 0;
+#X connect 7 0 4 1;
+#X connect 9 0 1 0;
+#X connect 10 0 12 0;
+#X connect 11 0 12 1;
+#X connect 12 0 4 0;
+#X connect 13 0 9 0;
+#X connect 14 0 13 0;
+#X restore 262 97 pd lop;
 #X connect 0 0 39 0;
 #X connect 0 1 40 0;
 #X connect 0 2 41 0;
@@ -173,4 +206,5 @@
 #X connect 79 0 61 0;
 #X connect 79 0 67 0;
 #X connect 79 0 73 0;
-#X coords 0 -1 1 1 300 160 1 15 130;
+#X connect 81 0 82 0;
+#X coords 0 -1 1 1 300 160 2 15 130;

@@ -1,17 +1,17 @@
 #N canvas 591 253 607 442 10;
 #X obj 14 330 gemwin 25;
 #X msg 335 142 0 \, destroy;
-#X obj 167 27 bng 15 250 50 0 empty empty Stop 17 7 0 10 -262144 -1
--1;
-#X obj 108 27 bng 15 250 50 0 empty empty Start 17 7 0 10 -262144 -1
--1;
-#X floatatom 107 55 5 0 0 1 X - -;
-#X floatatom 166 54 5 0 0 1 Y - -;
+#X obj 147 27 bng 15 250 50 0 empty empty STOP 17 7 0 5 -1 -4034 -191407
+;
+#X obj 102 27 bng 15 250 50 0 empty empty START 17 7 0 5 -33289 -4034
+-191407;
+#X floatatom 102 44 5 0 0 1 X - -;
+#X floatatom 147 44 5 0 0 1 Y - -;
 #X msg 164 204 dimen \$1 \$2;
 #X obj 164 173 pack 640 480;
-#X obj 107 80 s screenX;
+#X obj 101 98 s screenX;
 #X obj 182 150 r screenX;
-#X obj 187 80 s screenY;
+#X obj 181 98 s screenY;
 #X obj 262 150 r screenY;
 #X obj 358 -24 r screenX;
 #X obj 436 -24 r screenY;
@@ -22,16 +22,16 @@
 #X obj 335 182 s gemwin;
 #X obj 14 298 r gemwin;
 #X obj 28 253 s gemwin;
-#X obj 221 29 bng 15 250 50 0 empty empty 2_screen 17 7 0 10 -262144
+#X obj 331 100 bng 15 250 50 0 empty empty 2_screen 17 7 0 10 -262144
 -1 -1;
-#X msg 222 57 1024;
-#X msg 260 57 768;
+#X msg 251 112 1024;
+#X msg 289 112 768;
 #X obj 52 101 t b b b;
 #X msg 16 200 title dots \, create \, 1;
 #X obj 27 149 delay 500;
-#X obj 128 -50 loadbang;
-#X msg 128 -17 960;
-#X msg 167 -20 720;
+#X obj 28 -40 loadbang;
+#X msg 28 -7 960;
+#X msg 67 -10 720;
 #X floatatom 89 269 5 0 0 0 - - -;
 #X msg 89 294 color 0 0 0 \$1;
 #X msg 194 300 print;
@@ -79,4 +79,4 @@
 #X connect 35 0 33 0;
 #X connect 36 0 33 0;
 #X connect 37 0 36 0;
-#X coords 0 -1 1 1 200 70 1 100 10;
+#X coords 0 -1 1 1 90 52 1 100 10;
