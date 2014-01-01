@@ -1,14 +1,14 @@
-#N canvas 87 505 848 525 10;
+#N canvas 659 40 848 525 10;
 #X obj 19 -101 adc~;
-#N canvas 369 131 712 393 reverb 0;
-#X msg 12 139 roomsize \$1;
-#X msg 89 139 damping \$1;
-#X msg 164 119 width \$1;
-#X msg 162 139 wet \$1;
-#X msg 209 138 dry \$1;
-#X msg 223 75 print;
-#X msg 97 119 freeze \$1;
-#X msg 24 119 bypass \$1;
+#N canvas 967 62 712 393 reverb 0;
+#X msg 12 209 roomsize \$1;
+#X msg 89 209 damping \$1;
+#X msg 164 189 width \$1;
+#X msg 162 209 wet \$1;
+#X msg 209 208 dry \$1;
+#X msg 157 238 print;
+#X msg 97 189 freeze \$1;
+#X msg 24 189 bypass \$1;
 #X text 375 249 - print the current values of the above parameters
 ;
 #X text 346 280 - start/stop freeze of reverb tail \, using 1 or 0
@@ -36,6 +36,8 @@
 1;
 #X floatatom 126 76 5 0 0 1 width - -;
 #X obj 29 274 freeverb~;
+#X obj 143 37 hsl 128 15 0 1 0 0 empty empty wet -2 -8 0 10 -262144
+-1 -1 0 1;
 #X connect 0 0 27 0;
 #X connect 1 0 27 0;
 #X connect 2 0 27 0;
@@ -55,9 +57,10 @@
 #X connect 26 0 2 0;
 #X connect 27 0 20 0;
 #X connect 27 1 21 0;
+#X connect 28 0 22 0;
 #X coords 0 -1 1 1 252 56 1 10 58;
-#X restore 32 45 pd reverb;
-#N canvas 471 637 432 332 my_delay2 0;
+#X restore 20 197 pd reverb;
+#N canvas 606 698 432 332 my_delay2 0;
 #X obj 165 181 sig~;
 #X floatatom 158 120 5 0 0 1 ms - -;
 #X obj 22 101 inlet~;
@@ -69,8 +72,8 @@
 #X obj 22 283 delwrite~ dl2 10000;
 #X floatatom 238 193 5 0 0 0 - - -;
 #X obj 106 141 hsl 128 15 0 1 0 0 empty empty wet -2 -8 0 10 -262144
--1 -1 12700 1;
-#X obj 233 103 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+-1 -1 0 1;
+#X obj 233 103 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 23 170 spigot~;
 #X connect 0 0 7 0;
@@ -87,8 +90,8 @@
 #X connect 12 0 8 0;
 #X connect 12 1 3 0;
 #X coords 0 -1 1 1 150 60 1 100 100;
-#X restore 87 -44 pd my_delay2;
-#X obj 90 18 throw~ ch2;
+#X restore 42 106 pd my_delay2;
+#X obj 45 168 throw~ ch2;
 #N canvas 818 220 1054 790 fiddle 0;
 #X obj 541 626 unpack;
 #X floatatom 541 676 0 0 0 0 - - -;
@@ -187,7 +190,7 @@ ones in determining the pitch. This specifies the number of the partial
 #X obj 748 752 outlet;
 #X obj 817 747 outlet;
 #X obj 213 646 spigot;
-#X obj 240 614 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 240 614 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 304 647 spigot;
 #X obj 331 615 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -244,7 +247,7 @@ ones in determining the pitch. This specifies the number of the partial
 #X restore 523 92 pd fiddle;
 #N canvas 1173 669 396 421 lead 0;
 #X obj 13 80 vsl 15 128 40 1000 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 2336 1;
+-1 -1 0 1;
 #X floatatom 13 216 5 0 0 0 - - -;
 #X obj 13 235 osc~ 440;
 #X floatatom 143 124 5 0 0 1 attack - -;
@@ -308,7 +311,7 @@ ones in determining the pitch. This specifies the number of the partial
 #X restore 550 245 pd lead;
 #N canvas 1173 669 396 421 lead 0;
 #X obj 13 80 vsl 15 128 40 1000 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 3836 1;
+-1 -1 0 1;
 #X floatatom 13 216 5 0 0 0 - - -;
 #X obj 13 235 osc~ 440;
 #X floatatom 143 124 5 0 0 1 attack - -;
@@ -317,7 +320,7 @@ ones in determining the pitch. This specifies the number of the partial
 #X msg 65 191 0.25;
 #X obj 187 304 line;
 #X obj 146 182 hsl 128 15 0 1 0 0 empty empty env -2 -8 0 10 -262144
--1 -1 4064 1;
+-1 -1 0 1;
 #X obj 86 297 line~;
 #X obj 14 344 *~;
 #X obj 13 296 clip~ -1 1;
@@ -375,7 +378,7 @@ ones in determining the pitch. This specifies the number of the partial
 #X obj 99 -81 throw~ ch1;
 #N canvas 1173 669 396 421 lead 0;
 #X obj 13 80 vsl 15 128 40 1000 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 916 1;
+-1 -1 0 1;
 #X floatatom 13 216 5 0 0 0 - - -;
 #X obj 13 235 osc~ 440;
 #X floatatom 143 124 5 0 0 1 attack - -;
@@ -438,13 +441,180 @@ ones in determining the pitch. This specifies the number of the partial
 #X coords 0 -1 1 1 140 100 2 140 100;
 #X restore 407 245 pd lead;
 #X obj 408 357 throw~ ch4;
-#X obj 33 109 throw~ ch3;
+#X obj 21 261 throw~ ch3;
 #X obj 397 -105 audiomixer;
-#X obj 4 132 slmkii;
+#X obj 8 321 slmkii;
+#N canvas 809 474 991 624 looper 1;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array cos-output 44100 float 0;
+#X coords 0 1.02 44100 -1.02 200 130 1;
+#X restore 734 201 graph;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array table18 44103 float 0;
+#X coords 0 1.02 44103 -1.02 200 130 1;
+#X restore 731 26 graph;
+#X obj 594 501 loadbang;
+#X obj 55 259 hip~ 5;
+#X floatatom 56 60 0 0 0 0 - - -;
+#X text 95 59 <-- frequency (Hz.);
+#X floatatom 142 97 0 0 0 0 - - -;
+#X obj 142 124 * 441;
+#X obj 120 173 +~ 1;
+#X text 181 96 <-- chunk size (100ths of a second);
+#X msg 609 439 bang;
+#X text 50 19 ENVELOPING YOUR LOOPING SAMPLER;
+#X obj 55 149 -~ 0.5;
+#X obj 55 199 cos~;
+#X obj 55 232 *~;
+#X obj 594 555 soundfiler;
+#X text 746 158 -- 44103 samples ---;
+#X text 737 332 ----- 1 second ------;
+#X obj 56 87 phasor~;
+#X obj 55 174 *~ 0.5;
+#X obj 54 291 output~;
+#X obj 120 148 *~;
+#X text 38 372 Here we apply an amplitude envelope to protect against
+discontinuities at the loop point. The envelope is just a cosine wave
+from -90 degrees to +90 degrees \, (-pi/2 to pi/2 radians) \, i.e.
+\, the part that is zero or positive in sign. The "cos~" object's input
+is in cycles (units of 2pi radians) so -1/4 to +1/4 addresses the desired
+part of the waveform.;
+#X obj 177 257 tabwrite~ cos-output;
+#X obj 177 233 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X text 198 230 <-- click to graph envelope;
+#X text 38 486 To see the envelope \, put the phasor on 2 Hz or so
+\, click the "graph" button \, and look at "cos-output." This is multiplied
+by the tabread4~ output so that it doesn't click when the phase wraps
+around.;
+#X text 36 555 It is possible to get much more control over the shape
+of the envelope \, but this will be taken up later.;
+#X obj 120 199 tabread4~ table18;
+#X obj 594 466 tabwrite~ table18;
+#X msg 594 530 read ../sound/voice.wav table18;
+#X text 651 440 <-- click here to record to table;
+#X text 685 509 v-- re-read the original sound;
+#X text 718 575 updated for Pd version 0.37;
+#X obj 594 413 inlet~;
+#X obj 652 413 inlet;
+#X connect 2 0 30 0;
+#X connect 3 0 20 0;
+#X connect 3 0 20 1;
+#X connect 4 0 18 0;
+#X connect 6 0 7 0;
+#X connect 7 0 21 1;
+#X connect 8 0 28 0;
+#X connect 10 0 29 0;
+#X connect 12 0 19 0;
+#X connect 13 0 14 0;
+#X connect 13 0 23 0;
+#X connect 14 0 3 0;
+#X connect 18 0 12 0;
+#X connect 18 0 21 0;
+#X connect 19 0 13 0;
+#X connect 21 0 8 0;
+#X connect 24 0 23 0;
+#X connect 28 0 14 1;
+#X connect 30 0 15 0;
+#X connect 34 0 29 0;
+#X connect 35 0 10 0;
+#X restore 326 129 pd looper;
+#N canvas 98 713 450 300 lop 1;
+#X obj 70 93 line;
+#X floatatom 70 114 10 0 0 0 - - -;
+#X floatatom 84 45 5 0 0 0 - - -;
+#X obj 70 73 pack f 500;
+#X floatatom 40 45 5 0 0 0 - - -;
+#X obj 22 18 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 94 21 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 17 203 throw~ ch4;
+#X obj 13 129 inlet~;
+#X obj 23 -47 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 56 -2 delay;
+#X obj 24 -27 metro;
+#X floatatom 105 -49 5 0 0 0 - - -;
+#X obj 105 -25 / 2;
+#X obj 138 197 outlet~;
+#X floatatom 168 119 5 0 0 0 - - -;
+#X obj 196 53 phasor~ 200;
+#X obj 50 156 lop~;
 #X connect 0 0 1 0;
-#X connect 0 0 2 0;
-#X connect 0 0 4 0;
-#X connect 0 0 9 0;
+#X connect 1 0 17 1;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 6 0 2 0;
+#X connect 8 0 17 0;
+#X connect 9 0 11 0;
+#X connect 10 0 6 0;
+#X connect 11 0 5 0;
+#X connect 11 0 10 0;
+#X connect 12 0 11 1;
+#X connect 12 0 13 0;
+#X connect 13 0 10 1;
+#X connect 13 0 3 1;
+#X connect 17 0 7 0;
+#X connect 17 0 14 0;
+#X restore 32 51 pd lop;
+#N canvas 143 322 699 490 osc 1;
+#X obj 332 375 outlet~;
+#X obj 262 302 *~;
+#X floatatom 114 48 0 0 0 0 - - -;
+#X obj 286 274 line~;
+#X msg 286 218 0.1 100;
+#X msg 305 243 0 100;
+#X text 357 213 on;
+#X text 354 242 off;
+#X text 343 271 envelope;
+#X text 343 284 generator;
+#X text 270 193 amplitude controls:;
+#X text 335 388 audio output;
+#X obj 136 304 metro 500;
+#X obj 136 279 r metro;
+#X text 98 354 graph the output;
+#X text 489 253 frequency control;
+#X text 13 130 change frequency;
+#X text 302 435 <-- creation argument sets initial frequency;
+#X text 289 413 v-- inlet resets phase;
+#X text 12 115 incoming numbers;
+#X obj 166 154 osc~ 1000;
+#X obj 344 125 *~;
+#X floatatom 353 87 5 0 0 0 - - -;
+#X floatatom 253 104 0 0 0 0 - - -;
+#X obj 253 128 sig~ 890;
+#X obj 174 77 * 2;
+#X obj 333 318 lop~;
+#X floatatom 422 301 5 0 0 0 - - -;
+#X obj 334 351 lop~;
+#X obj 264 162 osc~;
+#X obj 348 157 clip~ -1 1;
+#X obj 395 26 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X connect 1 0 26 0;
+#X connect 2 0 20 0;
+#X connect 2 0 25 0;
+#X connect 3 0 1 1;
+#X connect 4 0 3 0;
+#X connect 5 0 3 0;
+#X connect 13 0 12 0;
+#X connect 13 0 12 0;
+#X connect 20 0 1 0;
+#X connect 21 0 30 0;
+#X connect 22 0 21 1;
+#X connect 23 0 24 0;
+#X connect 24 0 29 0;
+#X connect 25 0 23 0;
+#X connect 26 0 28 0;
+#X connect 27 0 26 1;
+#X connect 27 0 28 1;
+#X connect 28 0 0 0;
+#X connect 29 0 21 0;
+#X restore 641 48 pd osc;
+#X obj 644 73 throw~ ch6;
 #X connect 1 0 12 0;
 #X connect 2 0 3 0;
 #X connect 4 0 5 1;
@@ -456,3 +626,6 @@ ones in determining the pitch. This specifies the number of the partial
 #X connect 5 0 7 0;
 #X connect 6 0 8 0;
 #X connect 10 0 11 0;
+#X connect 16 0 2 0;
+#X connect 16 0 1 0;
+#X connect 17 0 18 0;
