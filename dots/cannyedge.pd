@@ -1,4 +1,4 @@
-#N canvas 1049 157 822 716 10;
+#N canvas 611 204 822 716 10;
 #X msg 119 275 print;
 #X obj 164 550 glsl_program;
 #X obj 237 476 pack 0 0;
@@ -50,7 +50,7 @@
 #X obj 87 328 delay 100;
 #X msg 311 473 threshhold \$1;
 #X obj 400 66 tgl 15 0 empty empty colormode -36 7 0 5 -262144 -1 -1
-0 1;
+1 1;
 #X obj 282 66 bng 15 250 50 0 empty empty pick_color 17 7 0 5 -262144
 -1 -1;
 #X obj 202 50 colorpanel;
@@ -59,17 +59,18 @@
 #X msg 282 247 red \$1;
 #X msg 398 248 blue \$1;
 #X obj 282 85 vsl 30 128 0 1 0 0 empty empty empty 0 -9 0 10 -261234
--1 -1 0 1;
+-1 -1 1500 1;
 #X obj 333 85 vsl 30 128 0 1 0 0 empty empty empty 0 -9 0 10 -204786
--1 -1 97 1;
+-1 -1 900 1;
 #X obj 384 85 vsl 30 128 0 1 0 0 empty empty empty 0 -9 0 10 -203904
--1 -1 90 1;
+-1 -1 1700 1;
 #X obj 498 60 sel 1;
 #X obj 501 90 b;
 #X obj 501 126 delay 39;
 #X msg 444 348 colormode \$1;
 #X obj 514 213 route threshhold colormode red green blue;
 #X obj 265 558 Textur;
+#X obj 575 157 r canny_ctl;
 #X connect 0 0 13 0;
 #X connect 1 0 15 0;
 #X connect 1 0 59 0;
@@ -148,4 +149,5 @@
 #X connect 58 2 49 0;
 #X connect 58 3 48 0;
 #X connect 58 4 50 0;
+#X connect 60 0 58 0;
 #X coords 0 -1 1 1 137 198 1 280 20;
