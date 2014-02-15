@@ -1,0 +1,15 @@
+#N canvas 336 379 450 300 10;
+#X floatatom 138 51 5 0 0 0 - - -;
+#X msg 36 149 note \$1;
+#X obj 55 110 spigot;
+#X obj 108 85 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+127;
+#X obj 67 -23 notein 1;
+#X obj 138 21 ctlin \$1;
+#X obj 35 184 outlet;
+#X connect 0 0 3 0;
+#X connect 1 0 6 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 1;
+#X connect 4 0 2 0;
+#X connect 5 0 0 0;
