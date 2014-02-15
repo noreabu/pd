@@ -1,4 +1,4 @@
-#N canvas 2806 710 450 300 10;
+#N canvas 2083 753 450 300 10;
 #X obj 13 16 r lp_row\$1_out;
 #X obj 13 38 sel 1;
 #X obj 13 110 f;
@@ -10,7 +10,6 @@
 #X obj 13 203 noteout;
 #X obj 152 176 f;
 #X obj 265 162 loadbang;
-#X msg 265 184 8;
 #X floatatom 65 72 5 0 0 1 note - -;
 #X floatatom 65 90 5 0 0 1 velocity - -;
 #X floatatom 65 108 5 0 0 1 duration - -;
@@ -18,12 +17,15 @@
 #X obj 216 15 r miditrigger_channel_\$1;
 #X obj 158 91 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
+#X obj 213 134 outlet;
+#X obj 276 126 s miditrigger_\$1;
+#X msg 265 184 2;
 #X connect 0 0 1 0;
-#X connect 1 0 15 0;
+#X connect 1 0 14 0;
 #X connect 2 0 6 0;
-#X connect 3 0 12 0;
-#X connect 3 1 13 0;
-#X connect 3 2 14 0;
+#X connect 3 0 11 0;
+#X connect 3 1 12 0;
+#X connect 3 2 13 0;
 #X connect 3 3 9 0;
 #X connect 4 0 3 0;
 #X connect 5 0 6 1;
@@ -31,12 +33,14 @@
 #X connect 6 1 8 1;
 #X connect 7 0 6 2;
 #X connect 9 0 8 2;
-#X connect 10 0 11 0;
-#X connect 11 0 9 0;
-#X connect 12 0 2 1;
-#X connect 13 0 5 0;
-#X connect 14 0 7 0;
-#X connect 15 0 2 0;
-#X connect 15 0 17 0;
-#X connect 16 0 3 0;
+#X connect 10 0 19 0;
+#X connect 11 0 2 1;
+#X connect 12 0 5 0;
+#X connect 13 0 7 0;
+#X connect 14 0 2 0;
+#X connect 14 0 16 0;
+#X connect 15 0 3 0;
+#X connect 16 0 17 0;
+#X connect 16 0 18 0;
+#X connect 19 0 9 0;
 #X coords 0 -1 1 1 120 80 1 60 50;
