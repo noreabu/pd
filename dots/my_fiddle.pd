@@ -1,4 +1,4 @@
-#N canvas 2210 142 953 801 10;
+#N canvas 265 0 953 754 10;
 #X obj 541 626 unpack;
 #X msg 447 459 print;
 #X obj 541 586 route 1 2 3 4;
@@ -68,7 +68,7 @@ ones in determining the pitch. This specifies the number of the partial
 128-2048);
 #X msg 449 406 npoints 128;
 #X msg 451 117 amp-range 70 90;
-#X obj 440 662 pack 0 0;
+#X obj 447 662 pack 0 0;
 #X obj 569 20 r startaudio;
 #X obj 338 526 spigot~;
 #X obj 335 413 adc~ 1;
@@ -78,10 +78,10 @@ ones in determining the pitch. This specifies the number of the partial
 #X obj 483 499 metro 40;
 #X obj 503 470 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 108 704 hsl 174 15 -127 127 0 0 empty empty empty -2 -8 0 10
--262144 -1 -1 7600 1;
+#X obj 108 729 hsl 174 30 -127 127 0 0 empty empty transpose 0 15 0
+10 -199729 -4160 -1 9600 1;
 #X obj 415 618 + 0;
-#X obj 445 690 outlet;
+#X obj 471 771 outlet;
 #X obj 174 719 bng 10 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 184 719 bng 10 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -112,21 +112,20 @@ ones in determining the pitch. This specifies the number of the partial
 -1 -1;
 #X obj 164 719 bng 10 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 89 645 spigot;
-#X obj 284 704 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 77 634 spigot;
+#X obj 284 712 tgl 25 0 empty empty monitor 2 -5 0 7 -262144 -1 -1
+1 1;
 #X obj 417 556 fiddle~ 1024 1 20 3;
 #X text 107 621 midinote correction;
 #X obj 285 562 r \$0-midinote_offset;
-#X obj 87 764 s \$0-midinote_offset;
-#X text 399 698 comment;
-#X obj 87 740 int;
-#X obj 409 639 moses 0;
-#X obj 80 704 tgl 25 0 \$0-start empty empty 17 7 0 10 -262144 -1 -1
+#X obj 105 793 s \$0-midinote_offset;
+#X obj 105 769 int;
+#X obj 409 640 moses 0;
+#X obj 80 689 tgl 25 0 \$0-start empty empty 17 7 0 10 -262144 -1 -1
 1 1;
 #X obj 250 437 r \$0-start;
 #X obj 655 38 r \$0-start;
-#X obj 89 673 route 48 50 52 53 55 57 59 60 62 64 65 67 69 71 72 74
+#X obj 78 653 route 48 50 52 53 55 57 59 60 62 64 65 67 69 71 72 74
 76 77;
 #X obj 254 719 bng 10 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -134,6 +133,14 @@ ones in determining the pitch. This specifies the number of the partial
 -1 -1;
 #X obj 274 719 bng 10 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
+#X floatatom 509 529 5 0 0 0 - - -;
+#X obj 464 593 moses 0;
+#X obj 472 745 spigot;
+#X msg 509 713 1;
+#X msg 473 715 0;
+#X obj 493 573 r \$0-mindb;
+#X obj 108 689 hsl 174 30 0 127 0 0 \$0-mindb empty min_dB 0 15 0 10
+-220534 -4160 -1 7200 1;
 #X connect 0 0 42 0;
 #X connect 1 0 67 0;
 #X connect 2 0 0 0;
@@ -147,43 +154,51 @@ ones in determining the pitch. This specifies the number of the partial
 #X connect 29 0 67 0;
 #X connect 36 0 67 0;
 #X connect 37 0 67 0;
-#X connect 38 0 49 0;
-#X connect 38 0 65 0;
+#X connect 38 0 82 0;
 #X connect 39 0 9 0;
 #X connect 40 1 67 0;
 #X connect 41 0 40 0;
+#X connect 41 0 67 0;
 #X connect 42 0 43 0;
 #X connect 43 0 48 0;
 #X connect 44 0 67 0;
 #X connect 45 0 67 0;
 #X connect 46 0 45 0;
-#X connect 47 0 72 0;
-#X connect 48 0 73 0;
-#X connect 65 0 77 0;
+#X connect 47 0 71 0;
+#X connect 48 0 72 0;
+#X connect 65 0 76 0;
 #X connect 66 0 65 1;
 #X connect 67 0 38 1;
+#X connect 67 3 81 0;
 #X connect 67 4 2 0;
 #X connect 69 0 48 1;
-#X connect 72 0 70 0;
-#X connect 73 1 38 0;
-#X connect 75 0 40 1;
-#X connect 76 0 9 0;
-#X connect 77 0 58 0;
-#X connect 77 1 59 0;
-#X connect 77 2 60 0;
-#X connect 77 3 61 0;
-#X connect 77 4 62 0;
-#X connect 77 5 63 0;
-#X connect 77 6 64 0;
-#X connect 77 7 50 0;
-#X connect 77 8 51 0;
-#X connect 77 9 52 0;
-#X connect 77 10 53 0;
-#X connect 77 11 54 0;
-#X connect 77 12 55 0;
-#X connect 77 13 56 0;
-#X connect 77 14 57 0;
-#X connect 77 15 78 0;
-#X connect 77 16 79 0;
-#X connect 77 17 80 0;
-#X coords 0 -1 1 1 239 33 2 75 700;
+#X connect 71 0 70 0;
+#X connect 72 1 38 0;
+#X connect 74 0 40 1;
+#X connect 75 0 9 0;
+#X connect 76 0 58 0;
+#X connect 76 1 59 0;
+#X connect 76 2 60 0;
+#X connect 76 3 61 0;
+#X connect 76 4 62 0;
+#X connect 76 5 63 0;
+#X connect 76 6 64 0;
+#X connect 76 7 50 0;
+#X connect 76 8 51 0;
+#X connect 76 9 52 0;
+#X connect 76 10 53 0;
+#X connect 76 11 54 0;
+#X connect 76 12 55 0;
+#X connect 76 13 56 0;
+#X connect 76 14 57 0;
+#X connect 76 15 77 0;
+#X connect 76 16 78 0;
+#X connect 76 17 79 0;
+#X connect 81 0 84 0;
+#X connect 81 1 83 0;
+#X connect 82 0 49 0;
+#X connect 82 0 65 0;
+#X connect 83 0 82 1;
+#X connect 84 0 82 1;
+#X connect 85 0 81 1;
+#X coords 0 -1 1 1 244 76 2 77 686;
