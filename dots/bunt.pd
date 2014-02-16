@@ -1,4 +1,4 @@
-#N canvas 240 171 878 843 10;
+#N canvas 230 196 878 759 10;
 #X obj 49 529 pix_snap2tex;
 #X msg 89 502 0 0;
 #X obj 89 479 t b b;
@@ -32,9 +32,9 @@
 #X msg 313 385 range \$1;
 #X obj 215 -82 inlet;
 #X obj 305 55 hsl 128 25 0 1 0 0 empty empty value 42 12 0 10 -262144
--1 -1 9000 1;
+-1 -1 5800 1;
 #X obj 305 82 hsl 128 25 0.01 0.5 0 0 empty empty range 42 12 0 10
--262144 -1 -1 3000 1;
+-262144 -1 -1 2600 1;
 #X msg 478 329 full_color \$1;
 #X obj 419 109 tgl 15 0 empty empty full_color -40 7 0 5 -1 -4034 -191407
 1 1;
@@ -46,11 +46,11 @@
 #X msg 303 329 red \$1;
 #X msg 416 332 blue \$1;
 #X obj 302 128 vsl 42 128 0 1 0 0 empty \$0-red r 11 64 0 10 -261234
--1 -1 1 0;
+-1 -1 127 0;
 #X obj 347 128 vsl 42 128 0 1 0 0 empty \$0-green g 12 63 0 10 -204786
--1 -1 1 1;
+-1 -1 127 1;
 #X obj 392 128 vsl 42 128 0 1 0 0 empty \$0-blue b 12 63 0 10 -203904
--1 -1 1 1;
+-1 -1 2 1;
 #X msg 135 501 1024 768;
 #X msg 63 137 open shader/bunt.vert;
 #X msg 62 221 open shader/bunt.frag;
@@ -67,7 +67,7 @@
 #X obj 392 289 f;
 #X obj 392 310 * 0;
 #X obj 401 268 t b f;
-#X obj 358 109 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 358 109 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 479 153 gate 2;
 #X obj 534 194 s \$0-green;
@@ -81,10 +81,12 @@
 #X obj 664 193 s \$0-threshold;
 #X obj 761 192 s \$0-colormode;
 #X obj 434 386 print;
-#X msg 556 273;
 #X floatatom 576 248 5 0 0 0 - - -;
-#X obj 84 -17 loadbang;
-#X msg 100 7 fader 1;
+#X obj 67 -54 loadbang;
+#X msg 83 -30 fader 1;
+#X obj 78 30 r cam;
+#X msg 146 3 0;
+#X obj 134 -79 r b\$1_ctl;
 #X connect 0 0 46 0;
 #X connect 1 0 0 1;
 #X connect 2 0 1 0;
@@ -162,7 +164,7 @@
 #X connect 57 1 56 1;
 #X connect 58 0 65 0;
 #X connect 59 0 49 0;
-#X connect 59 0 72 0;
+#X connect 59 0 71 0;
 #X connect 59 1 61 0;
 #X connect 63 0 52 0;
 #X connect 63 1 60 0;
@@ -175,6 +177,10 @@
 #X connect 65 0 67 0;
 #X connect 66 1 68 0;
 #X connect 67 1 69 0;
-#X connect 73 0 74 0;
-#X connect 74 0 47 0;
+#X connect 72 0 73 0;
+#X connect 72 0 75 0;
+#X connect 73 0 47 0;
+#X connect 74 0 22 0;
+#X connect 75 0 58 0;
+#X connect 76 0 47 0;
 #X coords 0 -1 1 1 137 226 1 300 35;

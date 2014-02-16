@@ -1,4 +1,4 @@
-#N canvas 194 197 1629 734 10;
+#N canvas 1986 181 1629 734 10;
 #X obj 1032 321 pix_snap2tex;
 #X msg 1074 291 0 0;
 #X obj 1074 268 t b b;
@@ -23,7 +23,7 @@
 #X obj 1034 222 t b a;
 #X floatatom 318 90 5 0 0 1 Iterationen - -;
 #X floatatom 213 71 10 -5 5 1 X - -;
-#X floatatom 213 89 5 0 0 1 Farbe - -;
+#X floatatom 213 89 5 0 0 1 Farbe #0r-color -;
 #X msg 629 115 maxiterations \$1;
 #X msg 483 91 x_offset \$1;
 #X msg 567 115 color \$1;
@@ -34,17 +34,17 @@
 #X obj 463 52 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 112 -39 inlet;
-#X obj 449 -198 inlet;
+#X obj 292 -201 inlet;
 #X obj 389 -9 inlet;
 #X obj 1305 -172 inlet;
 #X floatatom 859 -203 10 0 100 1 Faktor(unused) - -;
 #X msg 860 -131 factor \$1;
 #X floatatom 860 -160 10 0 0 0 - - -;
-#X floatatom 213 110 5 0 0 1 rot - -;
+#X floatatom 213 110 5 0 0 1 rot #0r-red -;
 #X msg 514 139 red \$1;
-#X floatatom 277 111 5 0 0 1 grün - -;
+#X floatatom 277 111 5 0 0 1 grün #0r-green -;
 #X msg 574 138 green \$1;
-#X floatatom 346 111 5 0 0 1 blau - -;
+#X floatatom 346 111 5 0 0 1 blau #0r-blue -;
 #X msg 644 138 blue \$1;
 #X floatatom 443 -138 10 -2 2 1 a - -;
 #X floatatom 548 -138 10 -2 2 1 b - -;
@@ -75,7 +75,7 @@
 #X obj 513 114 / 100000;
 #X msg 135 72 512;
 #X obj 113 -20 unpack 0 0 0;
-#X obj 446 -165 unpack 0 0 0;
+#X obj 468 -159 unpack 0 0 0;
 #X obj 386 33 unpack 0 0 0;
 #X obj 1034 -181 gemhead;
 #X msg 1048 -75 open shader/mandelbrot1.vert;
@@ -90,9 +90,9 @@
 #X obj 15 -119 delay 500;
 #X obj 1265 -79 * 1;
 #X floatatom 1287 -105 8 0 0 0 - - -;
-#X floatatom 213 132 5 0 0 1 t_r - -;
-#X floatatom 281 134 5 0 0 1 t_g - -;
-#X floatatom 350 134 5 0 0 1 t_b - -;
+#X floatatom 213 132 10 0 0 1 t_r - -;
+#X floatatom 281 134 10 0 0 1 t_g - -;
+#X floatatom 350 134 10 0 0 1 t_b - -;
 #X obj 785 182 s to_glslprogramm;
 #X msg 518 168 thres1 \$1;
 #X msg 586 168 thres2 \$1;
@@ -118,6 +118,13 @@
 #X obj 1034 345 Textur;
 #X obj 446 52 bng 15 250 50 0 empty empty reload -25 7 0 5 -262144
 -1 -1;
+#X obj 237 -92 s \$0r-red;
+#X obj 182 -202 r fraktal_ctl;
+#X obj 303 -90 s \$0r-green;
+#X obj 385 -90 s \$0r-blue;
+#X floatatom 275 -14 5 0 0 0 - - -;
+#X obj 291 -173 route red green blue color;
+#X obj 464 -57 s \$0r-color;
 #X connect 0 0 112 0;
 #X connect 1 0 0 1;
 #X connect 2 0 1 0;
@@ -157,7 +164,7 @@
 #X connect 30 0 17 0;
 #X connect 31 0 30 1;
 #X connect 32 0 73 0;
-#X connect 33 0 74 0;
+#X connect 33 0 119 0;
 #X connect 34 0 75 0;
 #X connect 35 0 86 0;
 #X connect 35 0 97 0;
@@ -188,13 +195,9 @@
 #X connect 63 0 46 0;
 #X connect 63 0 50 0;
 #X connect 64 0 21 0;
-#X connect 65 0 39 0;
-#X connect 65 0 41 0;
-#X connect 65 0 43 0;
 #X connect 67 0 5 0;
 #X connect 70 0 62 0;
 #X connect 71 0 26 0;
-#X connect 72 0 23 0;
 #X connect 73 0 22 0;
 #X connect 73 1 27 0;
 #X connect 74 0 45 0;
@@ -244,4 +247,11 @@
 #X connect 108 0 106 0;
 #X connect 108 0 107 0;
 #X connect 113 0 80 0;
+#X connect 115 0 119 0;
+#X connect 119 0 114 0;
+#X connect 119 0 118 0;
+#X connect 119 1 116 0;
+#X connect 119 2 117 0;
+#X connect 119 3 120 0;
+#X connect 119 4 74 0;
 #X coords 0 -1 1 1 270 100 2 210 50;
