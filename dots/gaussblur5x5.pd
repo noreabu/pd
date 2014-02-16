@@ -1,4 +1,4 @@
-#N canvas 543 155 733 655 10;
+#N canvas 491 91 733 655 10;
 #X obj 164 518 pix_snap2tex;
 #X msg 204 491 0 0;
 #X obj 204 468 t b b;
@@ -65,14 +65,14 @@
 #X obj 402 53 t b b;
 #X obj 366 345 f;
 #X obj 334 167 delay 500;
-#X msg 252 492 960 720;
 #X obj 446 22 bng 15 250 50 0 empty empty reload -25 7 0 5 -262144
 -1 -1;
 #X obj 81 21 r cam;
+#X msg 252 492 1024 768;
 #X connect 0 0 23 0;
 #X connect 1 0 0 1;
 #X connect 2 0 1 0;
-#X connect 2 1 62 0;
+#X connect 2 1 64 0;
 #X connect 3 0 2 0;
 #X connect 4 0 17 0;
 #X connect 5 0 53 0;
@@ -148,7 +148,8 @@
 #X connect 60 0 31 0;
 #X connect 61 0 60 0;
 #X connect 61 0 58 0;
-#X connect 62 0 0 2;
-#X connect 63 0 59 0;
-#X connect 64 0 39 0;
+#X connect 62 0 59 0;
+#X connect 63 0 39 0;
+#X connect 63 0 22 0;
+#X connect 64 0 0 2;
 #X coords 0 -1 1 1 138 20 1 342 20;

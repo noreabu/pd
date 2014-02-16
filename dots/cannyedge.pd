@@ -1,4 +1,4 @@
-#N canvas 1003 202 822 716 10;
+#N canvas 398 43 822 716 10;
 #X msg 119 275 print;
 #X obj 164 550 glsl_program;
 #X obj 237 476 pack 0 0;
@@ -30,7 +30,7 @@
 #X msg 178 277 open shader/cannyedge.vert;
 #X msg 186 360 open shader/cannyedge.frag;
 #X obj 285 39 hsl 128 25 0 1 0 0 empty \$0-threshold threshold 23 12
-0 10 -262144 -1 -1 0 1;
+0 10 -262144 -1 -1 400 1;
 #X obj 21 420 t b f;
 #X obj 21 464 / 1;
 #X msg 21 441 1;
@@ -59,11 +59,11 @@
 #X msg 282 246 red \$1;
 #X msg 398 248 blue \$1;
 #X obj 282 85 vsl 30 128 0 1 0 0 empty \$0-red empty 0 -9 0 10 -261234
--1 -1 0 1;
+-1 -1 2562 1;
 #X obj 333 85 vsl 30 128 0 1 0 0 empty \$0-green empty 0 -9 0 10 -204786
--1 -1 1 1;
+-1 -1 2562 1;
 #X obj 384 85 vsl 30 128 0 1 0 0 empty \$0-blue empty 0 -9 0 10 -203904
--1 -1 1 1;
+-1 -1 2562 1;
 #X obj 443 10 sel 1;
 #X obj 446 40 b;
 #X obj 446 76 delay 39;
@@ -75,7 +75,7 @@
 #X obj 592 184 s \$0-blue;
 #X obj 513 142 gate 2;
 #X obj 558 142 gate 2;
-#X obj 340 66 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 340 66 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 469 113 + 1;
 #X obj 513 80 route red green blue threshhold colormode;
