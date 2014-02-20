@@ -1,0 +1,115 @@
+#N canvas 1968 124 965 810 10;
+#X obj 16 11 Fenster;
+#X obj 461 84 gemhead;
+#X obj 520 85 bng 15 250 50 0 empty empty pix_load 20 8 0 8 -262144
+-1 -1;
+#N canvas 2097 794 587 366 image 0;
+#X obj 77 48 inlet;
+#X obj 84 247 outlet;
+#X obj 223 55 inlet;
+#X msg 223 123 open \$1;
+#X obj 223 100 openpanel;
+#X text 312 85 re-send the image to the [pix_]-object;
+#X text 231 37 open;
+#X text 79 30 gemlist;
+#X obj 79 205 pix_image rising_sun_transp.tiff;
+#X connect 0 0 8 0;
+#X connect 2 0 4 0;
+#X connect 3 0 8 0;
+#X connect 4 0 3 0;
+#X connect 8 0 1 0;
+#X restore 461 113 pd image;
+#X obj 464 447 pix_texture;
+#X text 526 105 open an image;
+#X text 519 118 (JPEG \, TIFF \, ..);
+#X msg 471 351 quality \$1;
+#X obj 471 332 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
+1;
+#X obj 552 372 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X msg 552 391 rectangle \$1;
+#X obj 479 397 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 552 332 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X msg 479 416 client_storage \$1;
+#X msg 552 351 repeat \$1;
+#X msg 503 307 env \$1;
+#X obj 504 287 hradio 15 1 0 6 empty empty empty 0 -6 0 8 -262144 -1
+-1 4;
+#X obj 582 212 pack 0 0 1;
+#X obj 608 186 t b f;
+#X obj 609 167 nbx 3 14 0 1 0 0 empty empty green 0 -6 0 10 -262144
+-1 -1 1 256;
+#X obj 650 186 t b f;
+#X obj 651 167 nbx 3 14 0 1 0 0 empty empty blue 0 -6 0 10 -262144
+-1 -1 0 256;
+#X obj 568 186 nbx 3 14 0 1 0 0 empty empty red 0 -6 0 10 -262144 -1
+-1 0.18 256;
+#X text 567 139 set base fragment color;
+#X obj 462 577 rectangle 3 2;
+#X obj 465 549 translateXYZ;
+#X floatatom 479 504 5 0 0 0 - - -;
+#X floatatom 522 500 5 0 0 0 - - -;
+#X floatatom 572 498 5 0 0 0 - - -;
+#X obj 139 149 colorpanel;
+#X obj 138 236 unpack float float float;
+#X obj 70 288 nbx 8 20 -1e+37 1e+37 0 0 empty empty red 0 28 0 14 -261234
+-1 -1 0.00392157 256;
+#X obj 190 288 nbx 8 20 -1e+37 1e+37 0 0 empty empty green 0 28 0 14
+-204786 -1 -1 0.231373 256;
+#X obj 310 288 nbx 8 20 -1e+37 1e+37 0 0 empty empty blue 0 28 0 14
+-203904 -1 -1 1 256;
+#X obj 29 245 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 135 123 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 62 350 pack 0 0 0;
+#X obj 32 391 color;
+#X obj 40 425 rectangle 4 3;
+#X obj 34 202 gemhead;
+#X obj 461 228 alpha;
+#X obj 487 202 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 691 459 pix_color;
+#X obj 430 156 pix_color 0 0.5 0;
+#X connect 1 0 3 0;
+#X connect 2 0 3 1;
+#X connect 3 0 43 0;
+#X connect 4 0 25 0;
+#X connect 7 0 4 0;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 4 0;
+#X connect 11 0 13 0;
+#X connect 12 0 14 0;
+#X connect 13 0 4 0;
+#X connect 14 0 4 0;
+#X connect 15 0 4 0;
+#X connect 16 0 15 0;
+#X connect 17 0 43 1;
+#X connect 18 0 17 0;
+#X connect 18 1 17 1;
+#X connect 19 0 18 0;
+#X connect 20 0 17 0;
+#X connect 20 1 17 2;
+#X connect 21 0 20 0;
+#X connect 22 0 17 0;
+#X connect 25 0 24 0;
+#X connect 26 0 25 1;
+#X connect 27 0 25 2;
+#X connect 28 0 25 3;
+#X connect 29 0 30 0;
+#X connect 30 0 31 0;
+#X connect 30 1 32 0;
+#X connect 30 2 33 0;
+#X connect 31 0 36 0;
+#X connect 32 0 36 1;
+#X connect 33 0 36 2;
+#X connect 35 0 29 0;
+#X connect 36 0 37 1;
+#X connect 37 0 38 0;
+#X connect 39 0 37 0;
+#X connect 40 0 4 0;
+#X connect 41 0 40 1;
+#X connect 43 0 40 0;
