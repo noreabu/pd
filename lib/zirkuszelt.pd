@@ -1,4 +1,4 @@
-#N canvas 1968 124 965 810 10;
+#N canvas 1957 131 965 810 10;
 #X obj 16 11 Fenster;
 #X obj 461 84 gemhead;
 #X obj 520 85 bng 15 250 50 0 empty empty pix_load 20 8 0 8 -262144
@@ -25,7 +25,7 @@
 #X msg 471 351 quality \$1;
 #X obj 471 332 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
 1;
-#X obj 552 372 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+#X obj 552 372 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
 1;
 #X msg 552 391 rectangle \$1;
 #X obj 479 397 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
@@ -36,7 +36,7 @@
 #X msg 552 351 repeat \$1;
 #X msg 503 307 env \$1;
 #X obj 504 287 hradio 15 1 0 6 empty empty empty 0 -6 0 8 -262144 -1
--1 4;
+-1 0;
 #X obj 582 212 pack 0 0 1;
 #X obj 608 186 t b f;
 #X obj 609 167 nbx 3 14 0 1 0 0 empty empty green 0 -6 0 10 -262144
@@ -45,9 +45,8 @@
 #X obj 651 167 nbx 3 14 0 1 0 0 empty empty blue 0 -6 0 10 -262144
 -1 -1 0 256;
 #X obj 568 186 nbx 3 14 0 1 0 0 empty empty red 0 -6 0 10 -262144 -1
--1 0.18 256;
+-1 0 256;
 #X text 567 139 set base fragment color;
-#X obj 462 577 rectangle 3 2;
 #X obj 465 549 translateXYZ;
 #X floatatom 479 504 5 0 0 0 - - -;
 #X floatatom 522 500 5 0 0 0 - - -;
@@ -55,28 +54,44 @@
 #X obj 139 149 colorpanel;
 #X obj 138 236 unpack float float float;
 #X obj 70 288 nbx 8 20 -1e+37 1e+37 0 0 empty empty red 0 28 0 14 -261234
--1 -1 0.00392157 256;
+-1 -1 1 256;
 #X obj 190 288 nbx 8 20 -1e+37 1e+37 0 0 empty empty green 0 28 0 14
--204786 -1 -1 0.231373 256;
+-204786 -1 -1 0 256;
 #X obj 310 288 nbx 8 20 -1e+37 1e+37 0 0 empty empty blue 0 28 0 14
--203904 -1 -1 1 256;
-#X obj 29 245 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
+-203904 -1 -1 0 256;
 #X obj 135 123 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 62 350 pack 0 0 0;
 #X obj 32 391 color;
 #X obj 40 425 rectangle 4 3;
-#X obj 34 202 gemhead;
+#X obj 9 322 gemhead;
 #X obj 461 228 alpha;
 #X obj 487 202 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 691 459 pix_color;
 #X obj 430 156 pix_color 0 0.5 0;
+#X obj 117 380 r \$0-rectangleX;
+#X obj 224 382 r \$0-rectangleY;
+#X obj 557 615 r \$0-rectangleX;
+#X obj 180 66 s \$0-rectangleX;
+#X obj 287 66 s \$0-rectangleY;
+#X floatatom 180 45 5 0 0 0 - - -;
+#X floatatom 287 45 5 0 0 0 - - -;
+#X obj 465 616 rotate 0 0 1;
+#X obj 480 700 square;
+#X floatatom 560 666 5 0 0 0 - - -;
+#X obj 712 307 snapshot~;
+#X obj 626 260 gemhead;
+#X obj 631 292 b;
+#X obj 647 415 * 360;
+#X obj 781 202 phasor~ 0.01;
+#X obj 676 253 phasor~ 0.01;
+#X floatatom 738 222 5 0 0 0 - - -;
+#X obj 503 237 loadbang;
+#X msg 504 264 0;
 #X connect 1 0 3 0;
 #X connect 2 0 3 1;
-#X connect 3 0 43 0;
-#X connect 4 0 25 0;
+#X connect 3 0 40 0;
+#X connect 4 0 24 0;
 #X connect 7 0 4 0;
 #X connect 8 0 7 0;
 #X connect 9 0 10 0;
@@ -87,7 +102,7 @@
 #X connect 14 0 4 0;
 #X connect 15 0 4 0;
 #X connect 16 0 15 0;
-#X connect 17 0 43 1;
+#X connect 17 0 40 1;
 #X connect 18 0 17 0;
 #X connect 18 1 17 1;
 #X connect 19 0 18 0;
@@ -95,21 +110,36 @@
 #X connect 20 1 17 2;
 #X connect 21 0 20 0;
 #X connect 22 0 17 0;
-#X connect 25 0 24 0;
-#X connect 26 0 25 1;
-#X connect 27 0 25 2;
-#X connect 28 0 25 3;
+#X connect 24 0 48 0;
+#X connect 25 0 24 1;
+#X connect 26 0 24 2;
+#X connect 27 0 24 3;
+#X connect 28 0 29 0;
 #X connect 29 0 30 0;
-#X connect 30 0 31 0;
-#X connect 30 1 32 0;
-#X connect 30 2 33 0;
-#X connect 31 0 36 0;
-#X connect 32 0 36 1;
-#X connect 33 0 36 2;
-#X connect 35 0 29 0;
-#X connect 36 0 37 1;
-#X connect 37 0 38 0;
-#X connect 39 0 37 0;
-#X connect 40 0 4 0;
-#X connect 41 0 40 1;
-#X connect 43 0 40 0;
+#X connect 29 1 31 0;
+#X connect 29 2 32 0;
+#X connect 30 0 34 0;
+#X connect 31 0 34 1;
+#X connect 32 0 34 2;
+#X connect 33 0 28 0;
+#X connect 34 0 35 1;
+#X connect 35 0 36 0;
+#X connect 37 0 35 0;
+#X connect 38 0 4 0;
+#X connect 39 0 38 1;
+#X connect 40 0 38 0;
+#X connect 41 0 36 1;
+#X connect 42 0 36 2;
+#X connect 43 0 49 1;
+#X connect 46 0 44 0;
+#X connect 47 0 45 0;
+#X connect 48 0 49 0;
+#X connect 50 0 49 1;
+#X connect 51 0 54 0;
+#X connect 52 0 53 0;
+#X connect 53 0 51 0;
+#X connect 54 0 48 1;
+#X connect 56 0 51 0;
+#X connect 57 0 56 0;
+#X connect 58 0 59 0;
+#X connect 59 0 16 0;
