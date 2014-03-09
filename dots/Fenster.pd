@@ -1,4 +1,4 @@
-#N canvas 320 140 790 442 10;
+#N canvas 1279 553 790 442 10;
 #X obj 14 330 gemwin 25;
 #X msg 295 132 0 \, destroy;
 #X obj 147 27 bng 15 250 50 0 empty empty STOP 17 7 0 5 -1 -4034 -191407
@@ -22,45 +22,41 @@
 #X obj 28 253 s gemwin;
 #X msg 247 77 1024;
 #X msg 285 77 768;
-#X obj 52 101 t b b b;
+#X obj 27 120 t b b b;
 #X msg 16 200 title dots \, create \, 1;
 #X obj 27 149 delay 500;
 #X obj 28 -40 loadbang;
 #X msg 28 -7 960;
 #X msg 67 -10 720;
-#X floatatom 89 269 5 0 0 0 - - -;
-#X msg 89 294 color 0 0 0 \$1;
 #X msg 194 300 print;
 #X obj 192 85 tgl 15 0 empty r-border border 0 -5 0 7 -262144 -1 -1
-0 1;
+1 1;
 #X msg 192 104 border \$1;
 #X obj 263 -2 pack 640 480;
 #X msg 263 29 offset \$1 \$2;
 #X floatatom 102 84 5 0 0 1 X r-offsetX #0-offsetX;
-#X floatatom 147 84 5 0 0 1 Y r-offsetY offsetY;
+#X floatatom 147 84 5 0 0 1 Y r-offsetY #0-offsetY;
 #X text 100 40 size;
 #X text 100 70 offset;
 #X obj 263 50 s gemwin;
-#X obj 263 -26 r \$0-offsetX;
-#X obj 344 -26 r \$0-offsetY;
 #X obj 192 27 vradio 15 1 0 3 \$0-preset empty presets 0 -8 0 7 -262144
--1 -1 0;
+-1 -1 2;
 #X obj 380 89 r \$0-preset;
 #X obj 380 117 route 0 1 2;
-#X obj 282 245 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
 #X obj 380 266 s \$0r-start;
 #X obj 380 151 t b b;
 #X obj 520 266 s \$0r-start;
 #X obj 520 151 t b b;
-#X msg 407 173 \; r-screenX 1024 \; r-screenY 768 \; r-offsetX 1280
-\; r-offsetY 0 \; r-border 1 \;;
-#X msg 547 173 \; r-screenX 1920 \; r-screenY 1200 \; r-offsetX 1920
-\; r-offsetY 0 \; r-border 0;
 #X obj 650 266 s \$0r-start;
 #X obj 650 151 t b b;
-#X msg 677 173 \; r-screenX 1280 \; r-screenY 800 \; r-offsetX 1280
-\; r-offsetY 0 \; r-border 0 \;;
+#X msg 407 173 \; r-screenY 768 \; r-screenX 1024 \; r-offsetY 0 \;
+r-offsetX 1280 \; r-border 1 \;;
+#X obj 263 -26 r r-offsetX;
+#X obj 343 -26 r r-offsetY;
+#X msg 547 173 \; r-offsetY 0 \; r-offsetX 1920 \; r-screenY 1200 \;
+r-screenX 1920 \; r-border 0;
+#X msg 677 173 \; r-screenY 800 \; r-screenX 1280 \; r-offsetY 0 \;
+r-offsetX 1280 \; r-border 1 \;;
 #X connect 1 0 16 0;
 #X connect 2 0 1 0;
 #X connect 3 0 21 0;
@@ -76,6 +72,7 @@
 #X connect 14 0 15 0;
 #X connect 17 0 0 0;
 #X connect 21 0 23 0;
+#X connect 21 0 30 0;
 #X connect 21 1 7 0;
 #X connect 21 2 1 0;
 #X connect 22 0 18 0;
@@ -83,22 +80,21 @@
 #X connect 24 0 25 0;
 #X connect 24 0 26 0;
 #X connect 24 0 3 0;
-#X connect 27 0 28 0;
-#X connect 28 0 0 0;
-#X connect 29 0 0 0;
+#X connect 27 0 0 0;
+#X connect 28 0 29 0;
+#X connect 29 0 18 0;
 #X connect 30 0 31 0;
-#X connect 31 0 18 0;
-#X connect 32 0 33 0;
-#X connect 39 0 32 0;
-#X connect 40 0 32 1;
-#X connect 42 0 43 0;
-#X connect 43 0 46 0;
-#X connect 43 1 48 0;
-#X connect 43 2 52 0;
-#X connect 46 0 45 0;
-#X connect 46 1 49 0;
-#X connect 48 0 47 0;
-#X connect 48 1 50 0;
-#X connect 52 0 51 0;
-#X connect 52 1 53 0;
+#X connect 31 0 36 0;
+#X connect 38 0 39 0;
+#X connect 39 0 41 0;
+#X connect 39 1 43 0;
+#X connect 39 2 45 0;
+#X connect 41 0 40 0;
+#X connect 41 1 46 0;
+#X connect 43 0 42 0;
+#X connect 43 1 49 0;
+#X connect 45 0 44 0;
+#X connect 45 1 50 0;
+#X connect 47 0 30 0;
+#X connect 48 0 30 1;
 #X coords 0 -1 1 1 130 92 1 100 10;
