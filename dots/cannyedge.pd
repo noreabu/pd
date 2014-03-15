@@ -1,4 +1,4 @@
-#N canvas 398 43 822 716 10;
+#N canvas 400 118 822 716 10;
 #X msg 119 275 print;
 #X obj 164 550 glsl_program;
 #X obj 237 476 pack 0 0;
@@ -18,7 +18,7 @@
 #X obj 164 579 outlet;
 #X obj 186 224 loadbang;
 #X obj 131 220 spigot;
-#X obj 401 22 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 401 22 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 384 22 bng 15 250 50 0 empty empty reload -25 7 0 5 -262144
 -1 -1;
@@ -30,7 +30,7 @@
 #X msg 178 277 open shader/cannyedge.vert;
 #X msg 186 360 open shader/cannyedge.frag;
 #X obj 285 39 hsl 128 25 0 1 0 0 empty \$0-threshold threshold 23 12
-0 10 -262144 -1 -1 400 1;
+0 10 -262144 -1 -1 0 1;
 #X obj 21 420 t b f;
 #X obj 21 464 / 1;
 #X msg 21 441 1;
@@ -58,12 +58,12 @@
 #X msg 332 246 green \$1;
 #X msg 282 246 red \$1;
 #X msg 398 248 blue \$1;
-#X obj 282 85 vsl 30 128 0 1 0 0 empty \$0-red empty 0 -9 0 10 -261234
--1 -1 2562 1;
-#X obj 333 85 vsl 30 128 0 1 0 0 empty \$0-green empty 0 -9 0 10 -204786
--1 -1 2562 1;
-#X obj 384 85 vsl 30 128 0 1 0 0 empty \$0-blue empty 0 -9 0 10 -203904
--1 -1 2562 1;
+#X obj 282 85 vsl 42 42 0 1 0 0 empty \$0-red empty 0 -9 0 10 -261234
+-1 -1 0 1;
+#X obj 329 85 vsl 42 43 0 1 0 0 empty \$0-green empty 0 -9 0 10 -204786
+-1 -1 0 1;
+#X obj 375 85 vsl 42 42 0 1 0 0 empty \$0-blue empty 0 -9 0 10 -203904
+-1 -1 0 1;
 #X obj 443 10 sel 1;
 #X obj 446 40 b;
 #X obj 446 76 delay 39;
@@ -182,4 +182,4 @@
 #X connect 72 0 65 0;
 #X connect 72 0 44 0;
 #X connect 73 0 67 0;
-#X coords 0 -1 1 1 137 198 1 280 20;
+#X coords 0 -1 1 1 137 115 1 280 20;
