@@ -1,4 +1,4 @@
-#N canvas 1048 291 611 391 10;
+#N canvas 2277 667 718 479 10;
 #X msg 163 232 hold \$1;
 #X msg 87 234 attack \$1;
 #X msg 14 235 amount \$1;
@@ -10,23 +10,42 @@
 #X obj 230 208 r \$0-sustain;
 #X obj 317 206 r \$0-release;
 #X obj 13 268 outlet;
-#X obj 11 -61 inlet;
-#X obj 10 -40 route amount attack hold sustain release;
+#X obj 11 -101 inlet;
 #X obj 11 -14 s \$0r-amount;
 #X obj 100 -13 s \$0r-attack;
 #X obj 180 -13 s \$0r-hold;
 #X obj 257 -10 s \$0r-sustain;
-#X obj 345 -17 s \$0r-release;
-#X obj 16 13 hsl 128 25 0.01 1 0 0 \$0-amount \$0r-amount amount 44
-12 0 10 -262144 -1 -1 10500 1;
-#X obj 16 41 hsl 128 25 0.01 250 1 0 \$0-attack \$0r-attack attack
-44 12 0 10 -262144 -1 -1 3400 1;
-#X obj 16 69 hsl 128 25 0.01 250 0 0 \$0-hold \$0r-hold hold 50 12
-0 10 -262144 -1 -1 3600 1;
-#X obj 16 97 hsl 128 25 0.01 250 0 0 \$0-sustain \$0r-sustain sustain
-44 12 0 10 -262144 -1 -1 11500 1;
-#X obj 16 125 hsl 128 25 0.01 1 1 0 \$0-release \$0r-release release
-44 12 0 10 -262144 -1 -1 1700 1;
+#X obj 346 -11 s \$0r-release;
+#X obj 16 13 hsl 128 25 0.01 2 0 0 \$0-amount \$0r-amount amount-0.386063
+4 12 0 13 -262144 -258699 -1 2400 1;
+#X obj 16 41 hsl 128 25 0.01 250 0 0 \$0-attack \$0r-attack attack-4.28389
+4 12 0 13 -262144 -258699 -1 7600 1;
+#X obj 16 69 hsl 128 25 0.01 250 0 0 \$0-hold \$0r-hold hold-29.5364
+4 12 0 13 -262144 -258699 -1 1500 1;
+#X obj 16 97 hsl 128 25 0.01 250 0 0 \$0-sustain \$0r-sustain sustain-49.2206
+4 12 0 13 -262144 -258699 -1 2500 1;
+#X obj 16 125 hsl 128 25 0.01 2 0 0 \$0-release \$0r-release release-0.542756
+4 12 0 13 -262144 -258699 -1 3400 1;
+#X msg 169 51 label amount-\$1;
+#X obj 169 24 r \$0-amount;
+#X obj 169 75 s \$0r-amount;
+#X obj 283 82 s \$0r-attack;
+#X obj 385 81 s \$0r-hold;
+#X obj 479 83 s \$0r-sustain;
+#X obj 585 82 s \$0r-release;
+#X obj 286 29 r \$0-attack;
+#X obj 385 28 r \$0-hold;
+#X obj 476 21 r \$0-sustain;
+#X obj 594 20 r \$0-release;
+#X msg 280 56 label attack-\$1;
+#X obj 10 -80 route amount attack hold sustain release;
+#X obj 308 -115 loadbang;
+#X obj 373 -96 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 385 56 label hold-\$1;
+#X msg 479 54 label sustain-\$1;
+#X msg 590 54 label release-\$1;
+#X msg 322 -64 color 30 13 22;
 #X connect 0 0 10 0;
 #X connect 1 0 10 0;
 #X connect 2 0 10 0;
@@ -37,10 +56,27 @@
 #X connect 7 0 0 0;
 #X connect 8 0 3 0;
 #X connect 9 0 4 0;
-#X connect 11 0 12 0;
-#X connect 12 0 13 0;
-#X connect 12 1 14 0;
-#X connect 12 2 15 0;
-#X connect 12 3 16 0;
-#X connect 12 4 17 0;
+#X connect 11 0 34 0;
+#X connect 22 0 24 0;
+#X connect 23 0 22 0;
+#X connect 29 0 33 0;
+#X connect 30 0 37 0;
+#X connect 31 0 38 0;
+#X connect 32 0 39 0;
+#X connect 33 0 25 0;
+#X connect 34 0 12 0;
+#X connect 34 1 13 0;
+#X connect 34 2 14 0;
+#X connect 34 3 15 0;
+#X connect 34 4 16 0;
+#X connect 35 0 40 0;
+#X connect 36 0 40 0;
+#X connect 37 0 26 0;
+#X connect 38 0 27 0;
+#X connect 39 0 28 0;
+#X connect 40 0 12 0;
+#X connect 40 0 13 0;
+#X connect 40 0 14 0;
+#X connect 40 0 15 0;
+#X connect 40 0 16 0;
 #X coords 0 -1 1 1 139 143 2 10 10;
