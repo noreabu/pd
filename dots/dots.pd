@@ -1,4 +1,4 @@
-#N canvas 1039 329 996 543 10;
+#N canvas 919 334 996 543 10;
 #X obj 6 -44 Fenster;
 #X obj -109 -44 Cam;
 #X obj 447 309 gaussblur5x5;
@@ -505,6 +505,7 @@ release 0.01;
 #X obj 308 309 bunt 4;
 #X obj 190 -34 loadbang;
 #X msg 192 -5 1;
+#X obj 727 152 difference;
 #X connect 2 0 3 0;
 #X connect 5 0 4 0;
 #X connect 5 1 4 2;
