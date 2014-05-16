@@ -1,4 +1,4 @@
-#N canvas 1279 553 790 442 10;
+#N canvas 1125 558 790 442 10;
 #X obj 14 330 gemwin 25;
 #X msg 295 132 0 \, destroy;
 #X obj 147 27 bng 15 250 50 0 empty empty STOP 17 7 0 5 -1 -4034 -191407
@@ -30,7 +30,7 @@
 #X msg 67 -10 720;
 #X msg 194 300 print;
 #X obj 192 85 tgl 15 0 empty r-border border 0 -5 0 7 -262144 -1 -1
-1 1;
+0 1;
 #X msg 192 104 border \$1;
 #X obj 263 -2 pack 640 480;
 #X msg 263 29 offset \$1 \$2;
@@ -40,7 +40,7 @@
 #X text 100 70 offset;
 #X obj 263 50 s gemwin;
 #X obj 192 27 vradio 15 1 0 3 \$0-preset empty presets 0 -8 0 7 -262144
--1 -1 2;
+-1 -1 1;
 #X obj 380 89 r \$0-preset;
 #X obj 380 117 route 0 1 2;
 #X obj 380 266 s \$0r-start;
