@@ -1,4 +1,4 @@
-#N canvas 121 141 1394 711 10;
+#N canvas 247 173 1394 711 10;
 #X msg 4 136 print;
 #X obj 49 441 glsl_program;
 #X obj 122 337 pack 0 0;
@@ -8,8 +8,8 @@
 #X obj 121 177 change;
 #X msg 122 362 link \$1 \$2;
 #X msg -2 343 print;
-#X floatatom 143 298 2 0 0 0 ID - -;
-#X floatatom 121 200 2 0 0 0 ID - -;
+#X floatatom 143 298 2 0 0 0 ID - -, f 2;
+#X floatatom 121 200 2 0 0 0 ID - -, f 2;
 #X obj 140 383 print linking;
 #X obj 49 252 glsl_fragment;
 #X obj 49 158 glsl_vertex;
@@ -19,16 +19,16 @@
 #X obj 91 65 loadbang;
 #X obj 49 56 spigot;
 #X obj 556 131 tgl 15 0 \$0-mon-toggle empty empty 17 7 0 10 -1 -4034
--1 1 1;
+-1 0 1;
 #X obj 538 131 bng 15 250 50 0 \$0-reload empty RELOAD -27 7 0 5 -1
 -4034 -191407;
 #X obj 34 20 inlet;
 #X msg 432 567 range \$1;
 #X obj 647 4 inlet;
-#X obj 441 149 hsl 128 25 0 1 0 0 \$0s-level \$0r-level level 42 12
-0 10 -262144 -1 -1 1684 1;
-#X obj 441 177 hsl 128 25 0.01 0.5 0 0 \$0s-range \$0r-range range
-42 12 0 10 -262144 -1 -1 500 1;
+#X obj 438 149 hsl 128 25 0 1 0 0 \$0s-level \$0r-level level 42 12
+0 10 -262144 -1 -1 2540 1;
+#X obj 438 177 hsl 128 25 0.01 0.5 0 0 \$0s-range \$0r-range range
+42 12 0 10 -262144 -1 -1 2333 1;
 #X msg 701 545 full_color \$1;
 #X obj 701 516 tgl 15 0 empty \$0-colormode full_color -40 7 0 5 -1
 -4034 -191407 1 1;
@@ -36,9 +36,9 @@
 #X msg 529 543 red \$1;
 #X msg 642 546 blue \$1;
 #X obj 438 236 vsl 42 42 0 1 0 0 empty \$0-mon-red empty 11 64 0 10
--261234 -1 -1 4000 0;
+-261234 -1 -1 0 0;
 #X obj 483 237 vsl 42 42 0 1 0 0 empty \$0-mon-green empty 12 63 0
-10 -204786 -1 -1 4100 1;
+10 -204786 -1 -1 0 1;
 #X obj 527 237 vsl 42 42 0 1 0 0 empty \$0-mon-blue empty 12 63 0 10
 -203904 -1 -1 0 1;
 #X msg 63 137 open shader/bunt.vert;
@@ -62,17 +62,17 @@
 #X obj 660 580 print;
 #X obj 78 30 r cam;
 #X obj 578 3 r b\$1_ctl;
-#X floatatom 348 459 5 0 0 0 - - -;
-#X floatatom 395 459 5 0 0 0 - - -;
+#X floatatom 348 459 5 0 0 0 - - -, f 5;
+#X floatatom 395 459 5 0 0 0 - - -, f 5;
 #X obj 347 437 * 1280;
 #X obj 403 438 * 720;
-#X floatatom 348 402 5 0 0 0 - - -;
+#X floatatom 348 402 5 0 0 0 - - -, f 5;
 #X obj 349 493 pack 1 1;
 #X obj 59 412 r \$0-glsl_program;
 #X obj 527 591 s \$0-glsl_program;
 #X obj 353 590 s \$0-glsl_program;
 #X obj 438 205 hradio 26 1 1 5 empty \$0-mon-scenes empty 0 -8 0 10
--262144 -1 -1 4;
+-262144 -1 -1 0;
 #X obj 360 264 s \$0-scenes;
 #X obj 353 544 r \$0s-level;
 #X obj 432 546 r \$0s-range;
@@ -97,7 +97,7 @@
 #X obj 1182 380 * 0.17;
 #X obj 1086 445 +;
 #X obj 1125 419 +;
-#X floatatom 1083 470 5 0 0 0 - - -;
+#X floatatom 1083 470 5 0 0 0 - - -, f 5;
 #X obj 1077 356 r \$0-red;
 #X obj 1136 355 r \$0-green;
 #X obj 1204 355 r \$0-blue;
@@ -107,7 +107,7 @@
 #X obj 644 128 gate 5;
 #X msg 354 569 level \$1;
 #X msg 510 71 fader 1;
-#X floatatom 432 67 5 0 0 0 - - -;
+#X floatatom 432 67 5 0 0 0 - - -, f 5;
 #X obj 1173 295 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 1076 222 t b f;
@@ -144,7 +144,7 @@
 #X obj 648 34 route level range red green blue toggle fader;
 #X obj 611 168 s \$0r-level;
 #X obj 662 210 s \$0r-range;
-#X floatatom 746 472 5 0 0 0 - - -;
+#X floatatom 746 472 5 0 0 0 - - -, f 5;
 #X connect 0 0 13 0;
 #X connect 1 0 36 0;
 #X connect 2 0 7 0;

@@ -5,8 +5,8 @@
 #X obj 170 248 t b f;
 #X obj 164 203 change;
 #X msg 149 294 link \$1 \$2;
-#X floatatom 170 229 2 0 0 0 ID - -;
-#X floatatom 148 121 2 0 0 0 ID - -;
+#X floatatom 170 229 2 0 0 0 ID - -, f 2;
+#X floatatom 148 121 2 0 0 0 ID - -, f 2;
 #X obj 167 315 print linking;
 #X obj 76 79 glsl_vertex;
 #X obj 76 183 glsl_fragment;
@@ -44,21 +44,21 @@
 #X msg 491 409 texunit 0 \, rectangle 0;
 #X msg 743 411 texunit 1 \, rectangle 0;
 #X obj 714 360 gemhead 22;
-#X floatatom 302 662 5 0 0 1 X[deg] - -;
-#X floatatom 322 682 5 0 0 1 Y[deg] - -;
-#X floatatom 346 702 5 0 0 1 Z[deg] - -;
+#X floatatom 302 662 5 0 0 1 X[deg] - -, f 5;
+#X floatatom 322 682 5 0 0 1 Y[deg] - -, f 5;
+#X floatatom 346 702 5 0 0 1 Z[deg] - -, f 5;
 #X msg 90 57 open shader/multitexture.vert;
 #X msg 86 153 open shader/multitexture.frag;
-#X floatatom 687 398 5 0 0 0 - - -;
-#X floatatom 639 643 5 0 0 0 - - -;
+#X floatatom 687 398 5 0 0 0 - - -, f 5;
+#X floatatom 639 643 5 0 0 0 - - -, f 5;
 #X obj 646 437 pix_delay;
 #X obj 520 30 tgl 15 0 \$0-mon-toggle empty empty 17 7 0 10 -1 -4034
 -1 0 -84;
 #X obj 502 30 bng 15 250 50 0 \$0-reload empty RELOAD -27 7 0 5 -1
 -4034 -191407;
-#X obj 405 48 hsl 128 25 0 1 0 0 \$0s-level \$0r-level level 42 12
+#X obj 402 48 hsl 128 25 0 1 0 0 \$0s-level \$0r-level level 42 12
 0 10 -262144 -1 -1 0 1;
-#X obj 405 76 hsl 128 25 0.01 0.5 0 0 \$0s-fader \$0r-fader fader 42
+#X obj 402 76 hsl 128 25 0.01 0.5 0 0 \$0s-fader \$0r-fader fader 42
 12 0 10 -262144 -1 -1 0 1;
 #X obj 402 135 vsl 42 42 0 1 0 0 empty \$0-mon-red empty 11 64 0 10
 -261234 -1 -1 0 0;
@@ -109,11 +109,11 @@
 #X obj 793 350 delay 200;
 #X obj 86 703 rotateXYZ 0 0 180;
 #X obj 611 779 translateXYZ -1 0 0;
-#X floatatom 320 753 5 0 0 1 Y[deg] - -;
-#X floatatom 344 773 5 0 0 1 Z[deg] - -;
-#X floatatom 174 795 5 0 0 0 - - -;
-#X floatatom 120 793 5 0 0 0 - - -;
-#X floatatom 300 733 5 0 0 1 X[deg] - -;
+#X floatatom 320 753 5 0 0 1 Y[deg] - -, f 5;
+#X floatatom 344 773 5 0 0 1 Z[deg] - -, f 5;
+#X floatatom 174 795 5 0 0 0 - - -, f 5;
+#X floatatom 120 793 5 0 0 0 - - -, f 5;
+#X floatatom 300 733 5 0 0 1 X[deg] - -, f 5;
 #X obj 84 774 translateXYZ 0.97 0.27 0;
 #X obj 84 820 rectangle 6.34 4.25;
 #X obj 601 191 spigot;

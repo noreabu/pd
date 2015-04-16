@@ -1,4 +1,4 @@
-#N canvas 917 283 297 305 10;
+#N canvas 743 189 297 305 10;
 #X obj 47 91 / 32768;
 #X obj 18 121 gemhead;
 #X obj 17 149 b;
@@ -11,8 +11,8 @@
 #X msg 107 149 0;
 #X obj 44 25 inlet;
 #X obj 87 252 outlet;
-#X obj 143 120 hsl 120 25 1000 5 1 0 empty empty speed 5 12 0 10 -262144
--1 -1 8300 1;
+#X obj 140 120 hsl 120 23 1000 5 1 0 empty empty speed 5 12 0 10 -262144
+-1 -1 0 1;
 #X obj 238 31 inlet;
 #X connect 0 0 3 0;
 #X connect 1 0 2 0;

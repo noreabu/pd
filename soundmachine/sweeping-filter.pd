@@ -1,4 +1,4 @@
-#N canvas 1990 108 1002 564 10;
+#N canvas 278 121 1002 564 10;
 #X obj 72 240 +~;
 #X obj 57 315 vcf~;
 #X obj 72 264 tabread4~ mtof;
@@ -75,7 +75,6 @@
 #X obj 679 8 envelope_setter;
 #X obj 699 165 r miditrigger_3;
 #X obj 466 405 s \$0-vcf_depth;
-#X obj 233 241 s \$0-vcf_freq;
 #X obj 826 226 envelope;
 #X obj 826 8 envelope_setter;
 #X obj 827 346 s \$0-vcf_freq;
@@ -84,6 +83,9 @@
 #X obj 859 169 r miditrigger_4;
 #X obj 205 410 s \$0r-lop_freq;
 #X obj 689 349 s \$0-vcf_freq;
+#X obj 233 241 s \$0-vcf_q;
+#X floatatom 306 123 5 0 0 0 - - -;
+#X floatatom 326 155 5 0 0 0 - - -;
 #X connect 0 0 2 0;
 #X connect 1 0 23 0;
 #X connect 1 0 24 0;
@@ -104,12 +106,12 @@
 #X connect 25 0 26 0;
 #X connect 25 1 27 0;
 #X connect 28 0 29 0;
-#X connect 29 0 50 0;
+#X connect 29 0 57 0;
 #X connect 30 0 31 0;
 #X connect 31 0 37 0;
 #X connect 32 0 30 0;
 #X connect 33 0 34 0;
-#X connect 34 0 56 0;
+#X connect 34 0 55 0;
 #X connect 35 0 34 2;
 #X connect 36 0 34 1;
 #X connect 38 0 39 0;
@@ -120,7 +122,9 @@
 #X connect 45 0 46 0;
 #X connect 47 0 46 0;
 #X connect 48 0 45 0;
-#X connect 51 0 53 0;
-#X connect 52 0 51 0;
-#X connect 54 0 51 0;
-#X connect 55 0 54 0;
+#X connect 50 0 52 0;
+#X connect 51 0 50 0;
+#X connect 53 0 50 0;
+#X connect 54 0 53 0;
+#X connect 58 0 29 1;
+#X connect 59 0 29 2;
