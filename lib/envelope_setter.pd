@@ -1,4 +1,4 @@
-#N canvas 2277 667 718 479 10;
+#N canvas 1124 309 718 479 10;
 #X msg 163 232 hold \$1;
 #X msg 87 234 attack \$1;
 #X msg 14 235 amount \$1;
@@ -16,16 +16,16 @@
 #X obj 180 -13 s \$0r-hold;
 #X obj 257 -10 s \$0r-sustain;
 #X obj 346 -11 s \$0r-release;
-#X obj 16 13 hsl 128 25 0.01 2 0 0 \$0-amount \$0r-amount amount-0.386063
-4 12 0 13 -262144 -258699 -1 2400 1;
-#X obj 16 41 hsl 128 25 0.01 250 0 0 \$0-attack \$0r-attack attack-4.28389
-4 12 0 13 -262144 -258699 -1 7600 1;
-#X obj 16 69 hsl 128 25 0.01 250 0 0 \$0-hold \$0r-hold hold-29.5364
-4 12 0 13 -262144 -258699 -1 1500 1;
-#X obj 16 97 hsl 128 25 0.01 250 0 0 \$0-sustain \$0r-sustain sustain-49.2206
-4 12 0 13 -262144 -258699 -1 2500 1;
-#X obj 16 125 hsl 128 25 0.01 2 0 0 \$0-release \$0r-release release-0.542756
-4 12 0 13 -262144 -258699 -1 3400 1;
+#X obj 16 13 hsl 128 25 0.01 2 0 0 \$0-amount \$0r-amount amount-0.992151
+4 12 0 13 -262144 -258699 -1 6268 1;
+#X obj 16 41 hsl 128 25 0.01 250 0 0 \$0-attack \$0r-attack attack-181.105
+4 12 0 13 -262144 -258699 -1 9200 1;
+#X obj 16 69 hsl 128 25 0.01 750 0 0 \$0-hold \$0r-hold hold-216.537
+4 12 0 13 -262144 -258699 -1 11000 1;
+#X obj 16 97 hsl 128 25 0.01 250 0 0 \$0-sustain \$0r-sustain sustain-208.663
+4 12 0 13 -262144 -258699 -1 10600 1;
+#X obj 16 125 hsl 128 25 0.01 2 0 0 \$0-release \$0r-release release-0.0314669
+4 12 0 13 -262144 -258699 -1 137 1;
 #X msg 169 51 label amount-\$1;
 #X obj 169 24 r \$0-amount;
 #X obj 169 75 s \$0r-amount;

@@ -1,4 +1,4 @@
-#N canvas 1125 558 790 442 10;
+#N canvas 1042 546 790 478 10;
 #X obj 14 330 gemwin 25;
 #X msg 295 132 0 \, destroy;
 #X obj 147 27 bng 15 250 50 0 empty empty STOP 17 7 0 5 -1 -4034 -191407
@@ -28,7 +28,7 @@
 #X obj 28 -40 loadbang;
 #X msg 28 -7 960;
 #X msg 67 -10 720;
-#X msg 194 300 print;
+#X msg 114 320 print;
 #X obj 192 85 tgl 15 0 empty r-border border 0 -5 0 7 -262144 -1 -1
 0 1;
 #X msg 192 104 border \$1;
@@ -40,7 +40,7 @@
 #X text 100 70 offset;
 #X obj 263 50 s gemwin;
 #X obj 192 27 vradio 15 1 0 3 \$0-preset empty presets 0 -8 0 7 -262144
--1 -1 1;
+-1 -1 0;
 #X obj 380 89 r \$0-preset;
 #X obj 380 117 route 0 1 2;
 #X obj 380 266 s \$0r-start;
@@ -53,10 +53,20 @@
 r-offsetX 1280 \; r-border 1 \;;
 #X obj 263 -26 r r-offsetX;
 #X obj 343 -26 r r-offsetY;
-#X msg 547 173 \; r-offsetY 0 \; r-offsetX 1920 \; r-screenY 1200 \;
-r-screenX 1920 \; r-border 0;
 #X msg 677 173 \; r-screenY 800 \; r-screenX 1280 \; r-offsetY 0 \;
 r-offsetX 1280 \; r-border 1 \;;
+#X msg 214 357 frame \$1;
+#X floatatom 238 323 5 0 0 0 - - -;
+#X obj 257 209 r fader8;
+#X obj 258 231 * 255;
+#X obj 257 260 int;
+#X obj 282 303 sel 0;
+#X msg 284 352 25;
+#X obj 282 257 r toggle_r18;
+#X obj 237 285 spigot;
+#X obj 202 393 s gemwin;
+#X msg 547 173 \; r-offsetY 0 \; r-offsetX 1920 \; r-screenY 768 \;
+r-screenX 1024 \; r-border 0 \;;
 #X connect 1 0 16 0;
 #X connect 2 0 1 0;
 #X connect 3 0 21 0;
@@ -92,9 +102,19 @@ r-offsetX 1280 \; r-border 1 \;;
 #X connect 41 0 40 0;
 #X connect 41 1 46 0;
 #X connect 43 0 42 0;
-#X connect 43 1 49 0;
+#X connect 43 1 60 0;
 #X connect 45 0 44 0;
-#X connect 45 1 50 0;
+#X connect 45 1 49 0;
 #X connect 47 0 30 0;
 #X connect 48 0 30 1;
+#X connect 50 0 59 0;
+#X connect 51 0 50 0;
+#X connect 52 0 53 0;
+#X connect 53 0 54 0;
+#X connect 54 0 58 0;
+#X connect 55 0 56 0;
+#X connect 56 0 51 0;
+#X connect 57 0 55 0;
+#X connect 57 0 58 1;
+#X connect 58 0 51 0;
 #X coords 0 -1 1 1 130 92 1 100 10;
