@@ -1,0 +1,36 @@
+#N canvas 265 336 516 463 10;
+#X floatatom 166 76 3 0 0 0 - - -;
+#X obj 120 22 notein;
+#X obj 114 51 stripnote;
+#X text 119 2 MIDI IN;
+#X obj 103 118 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 43 73 sel \$1;
+#X obj 107 228 outlet;
+#X obj 310 22 inlet~;
+#X obj 288 112 moses 70;
+#X obj 297 77 env~;
+#X obj 163 121 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 280 242 makenote 100 200;
+#X obj 297 308 noteout;
+#X obj 332 187 f;
+#X obj 54 8 inlet;
+#X floatatom 126 119 5 0 0 0 - - -;
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;
+#X connect 2 0 5 0;
+#X connect 2 1 0 0;
+#X connect 4 0 6 0;
+#X connect 5 0 4 0;
+#X connect 7 0 9 0;
+#X connect 8 1 10 0;
+#X connect 9 0 8 0;
+#X connect 10 0 13 0;
+#X connect 11 0 12 0;
+#X connect 11 1 12 1;
+#X connect 13 0 11 0;
+#X connect 14 0 5 1;
+#X connect 14 0 13 1;
+#X connect 14 0 15 0;
+#X coords 0 -1 1 1 85 60 1 100 100;
