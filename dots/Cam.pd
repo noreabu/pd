@@ -1,4 +1,4 @@
-#N canvas 337 102 819 601 10;
+#N canvas 366 210 819 601 10;
 #X obj -17 13 gemhead;
 #X msg 77 13 colorspace RGBA;
 #N canvas 899 423 218 230 flip 0;
@@ -34,41 +34,41 @@
 #X obj -17 35 spigot;
 #X obj 166 86 loadbang;
 #X obj 114 87 sel 1;
-#X msg 161 50 close;
-#X floatatom 25 154 5 0 0 1 X - -, f 5;
+#X msg 156 62 close;
+#X floatatom 25 154 5 0 0 1 X - -;
 #X msg -2 264 dimen \$1 \$2;
 #X msg 196 14 dialog;
 #X obj -17 96 pix_video;
 #X msg 73 -11 dimen 1280 720;
 #X obj 7 232 pack 640 480;
-#X floatatom 67 154 5 0 0 1 Y - -, f 5;
+#X floatatom 67 154 5 0 0 1 Y - -;
 #X obj 41 346 s cam;
 #X text 107 138 flip;
 #X text 108 155 size;
 #X obj 131 122 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 5 321 translateXYZ;
-#X floatatom 104 174 5 0 0 0 - #0-z -, f 5;
-#X floatatom 67 174 5 0 0 0 - #0-y -, f 5;
-#X floatatom 26 174 5 0 0 0 - #0-x -, f 5;
+#X floatatom 104 174 5 0 0 0 - #0-z -;
+#X floatatom 67 174 5 0 0 0 - #0-y -;
+#X floatatom 26 174 5 0 0 0 - #0-x -;
 #X obj 208 59 r z_cam;
 #X obj 458 90 hid;
 #X msg 459 21 open \$1;
-#X floatatom 462 -5 5 0 0 0 - - -, f 5;
+#X floatatom 462 -5 5 0 0 0 - - -;
 #X msg 492 76 open 0x045e:0x071a5;
 #X obj 432 65 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X floatatom 440 259 6 0 0 0 - - -, f 6;
-#X floatatom 556 170 5 0 0 1 ev_syn - -, f 5;
+#X floatatom 440 259 6 0 0 0 - - -;
+#X floatatom 556 170 5 0 0 1 ev_syn - -;
 #X obj 529 169 +;
 #X msg 529 149 1;
 #X obj 434 118 route key rel abs syn;
-#X floatatom 490 259 6 0 0 0 - - -, f 6;
-#X floatatom 540 259 6 0 0 0 - - -, f 6;
-#X floatatom 590 259 6 0 0 0 - - -, f 6;
-#X floatatom 640 259 6 0 0 0 - - -, f 6;
-#X floatatom 690 259 6 0 0 0 - - -, f 6;
-#X floatatom 740 259 6 0 0 0 - - -, f 6;
+#X floatatom 490 259 6 0 0 0 - - -;
+#X floatatom 540 259 6 0 0 0 - - -;
+#X floatatom 590 259 6 0 0 0 - - -;
+#X floatatom 640 259 6 0 0 0 - - -;
+#X floatatom 690 259 6 0 0 0 - - -;
+#X floatatom 740 259 6 0 0 0 - - -;
 #X obj 440 229 route abs_x abs_y abs_z abs_rx abs_ry abs_rz abs_throttle
 ;
 #X obj 344 493 s \$0-y;
@@ -92,9 +92,9 @@
 #X obj 581 325 * -1;
 #X obj 565 561 s \$0-z;
 #X obj 293 437 * -1;
-#X floatatom 89 287 5 0 0 0 - - -, f 5;
-#X floatatom 120 287 5 0 0 0 - - -, f 5;
-#X floatatom 150 290 5 0 0 0 - - -, f 5;
+#X floatatom 89 287 5 0 0 0 - - -;
+#X floatatom 120 287 5 0 0 0 - - -;
+#X floatatom 150 290 5 0 0 0 - - -;
 #X obj 205 422 spigot;
 #X obj 236 405 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -111,7 +111,9 @@
 #X obj 26 195 hradio 15 1 0 4 empty empty device 62 8 0 10 -262144
 -1 -1 1;
 #X msg 158 138 1;
-#X msg 102 51 device /dev/video\$1;
+#X msg 185 165 device \$1;
+#X msg 180 -8 dimen 1920 1080;
+#X msg 262 29 dimen 320 240;
 #X connect 0 0 6 0;
 #X connect 1 0 13 0;
 #X connect 2 0 5 0;
@@ -191,4 +193,6 @@
 #X connect 75 0 77 0;
 #X connect 76 0 75 0;
 #X connect 77 0 13 0;
+#X connect 78 0 13 0;
+#X connect 79 0 13 0;
 #X coords 0 -1 1 1 125 100 1 23 120;

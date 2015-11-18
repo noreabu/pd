@@ -8,8 +8,8 @@
 #X obj 236 316 change;
 #X msg 237 501 link \$1 \$2;
 #X msg 181 503 print;
-#X floatatom 258 437 2 0 0 0 ID - -, f 2;
-#X floatatom 236 339 2 0 0 0 ID - -, f 2;
+#X floatatom 258 437 2 0 0 0 ID - -;
+#X floatatom 236 339 2 0 0 0 ID - -;
 #X obj 255 522 print linking;
 #X obj 164 391 glsl_fragment;
 #X obj 164 297 glsl_vertex;
@@ -29,7 +29,7 @@
 #X obj 37 264 spigot;
 #X msg 178 277 open shader/cannyedge.vert;
 #X msg 186 360 open shader/cannyedge.frag;
-#X obj 282 39 hsl 128 25 0 1 0 0 empty \$0-threshold threshold 23 12
+#X obj 285 39 hsl 128 25 0 1 0 0 empty \$0-threshold threshold 23 12
 0 10 -262144 -1 -1 0 1;
 #X obj 21 420 t b f;
 #X obj 21 464 / 1;

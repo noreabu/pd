@@ -16,15 +16,15 @@
 #X obj 180 -13 s \$0r-hold;
 #X obj 257 -10 s \$0r-sustain;
 #X obj 346 -11 s \$0r-release;
-#X obj 11 13 hsl 128 25 0.01 2 0 0 \$0-amount \$0r-amount amount-0.992151
+#X obj 15 13 hsl 128 25 0.01 2 0 0 \$0-amount \$0r-amount amount-0.992151
 4 12 0 13 -262144 -258699 -1 0 1;
-#X obj 11 41 hsl 128 25 0.01 250 0 0 \$0-attack \$0r-attack attack-181.105
+#X obj 15 41 hsl 128 25 0.01 250 0 0 \$0-attack \$0r-attack attack-181.105
 4 12 0 13 -262144 -258699 -1 0 1;
-#X obj 11 69 hsl 128 25 0.01 750 0 0 \$0-hold \$0r-hold hold-216.537
+#X obj 15 69 hsl 128 25 0.01 750 0 0 \$0-hold \$0r-hold hold-216.537
 4 12 0 13 -262144 -258699 -1 0 1;
-#X obj 11 97 hsl 128 25 0.01 250 0 0 \$0-sustain \$0r-sustain sustain-208.663
+#X obj 15 97 hsl 128 25 0.01 250 0 0 \$0-sustain \$0r-sustain sustain-208.663
 4 12 0 13 -262144 -258699 -1 0 1;
-#X obj 11 125 hsl 128 25 0.01 2 0 0 \$0-release \$0r-release release-0
+#X obj 15 125 hsl 128 25 0.01 2 0 0 \$0-release \$0r-release release-0
 4 12 0 13 -262144 -258699 -1 0 1;
 #X msg 169 51 label amount-\$1;
 #X obj 169 24 r \$0-amount;
